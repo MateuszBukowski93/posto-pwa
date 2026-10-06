@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata, Viewport } from 'next';
 import { Bricolage_Grotesque, Manrope } from 'next/font/google';
+import Script from 'next/script';
 import { AppProviders } from '@/components/providers/AppProviders';
 import { BOOT_SCRIPT } from '@/lib/bootScript';
 import { ANALYTICS_ENABLED, THEME_COLORS } from '@/lib/config';
@@ -55,6 +56,13 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           </div>
         </AppProviders>
         {ANALYTICS_ENABLED ? <Analytics /> : null}
+        {/* Cloudflare Web Analytics (bez cookies) */}
+        <Script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "b142109cdf4047c6882e9dcd45b40198"}'
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

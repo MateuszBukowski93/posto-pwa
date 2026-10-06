@@ -27,7 +27,7 @@ export const siteConfig = {
   appUrl: process.env.NEXT_PUBLIC_APP_URL || '[ADRES APLIKACJI]',
   effectiveDate: '[DATA]',
   buyMeACoffeeUrl: '[LINK BUY ME A COFFEE]',
-  analyticsTool: '[NAZWA NARZĘDZIA, np. Vercel Web Analytics]',
+  analyticsTool: 'Cloudflare Web Analytics',
   hostingProvider: '[NAZWA HOSTINGU, np. Vercel Inc.]',
   retentionPeriod: '[OKRES]',
 } as const;
