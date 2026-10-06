@@ -84,7 +84,6 @@
     "endFast": "Terminar jejum",
     "endFastReached": "Terminar · meta atingida",
     "startNow": "Começar agora",
-    "startedEarlier": "Comecei antes",
     "announcePhase": "Fase do jejum: {phase}",
     "announceGoal": "Meta de {goal} h atingida"
   },

@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useEffect, useRef, useSyncExternalStore, type ReactNode } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 const FOCUSABLE =
@@ -42,6 +42,23 @@ export function BottomSheet({ open, onClose, titleId, children, gap = 18 }: Bott
   useEffect(() => {
     onCloseRef.current = onClose;
   }, [onClose]);
+
+  // Dopasowanie do widocznego obszaru, żeby klawiatura ekranowa nie zasłaniała arkusza.
+  const [viewport, setViewport] = useState<{ top: number; height: number } | null>(null);
+  useEffect(() => {
+    if (!open) return;
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const update = () => setViewport({ top: vv.offsetTop, height: vv.height });
+    update();
+    vv.addEventListener('resize', update);
+    vv.addEventListener('scroll', update);
+    return () => {
+      vv.removeEventListener('resize', update);
+      vv.removeEventListener('scroll', update);
+      setViewport(null);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -92,7 +109,14 @@ export function BottomSheet({ open, onClose, titleId, children, gap = 18 }: Bott
   if (!open || !isClient) return null;
 
   return createPortal(
-    <div className="anim-overlay fixed inset-0 z-50 flex flex-col" style={{ background: 'var(--overlay)' }}>
+    <div
+      className="anim-overlay fixed inset-x-0 top-0 z-50 flex flex-col"
+      style={{
+        background: 'var(--overlay)',
+        top: viewport?.top ?? 0,
+        height: viewport ? viewport.height : '100dvh',
+      }}
+    >
       <button
         type="button"
         tabIndex={-1}
@@ -106,7 +130,7 @@ export function BottomSheet({ open, onClose, titleId, children, gap = 18 }: Bott
         aria-modal="true"
         aria-labelledby={titleId}
         tabIndex={-1}
-        className="anim-sheet mx-auto flex max-h-[calc(100dvh-24px)] w-full max-w-[480px] flex-col overflow-y-auto rounded-t-[28px] bg-surface px-5 pt-[10px] text-ink outline-none"
+        className="anim-sheet mx-auto flex max-h-[calc(100%-24px)] w-full max-w-[480px] flex-col overflow-y-auto rounded-t-[28px] bg-surface px-5 pt-[10px] text-ink outline-none"
         style={{ gap, paddingBottom: 'max(28px, calc(env(safe-area-inset-bottom) + 16px))' }}
       >
         <div aria-hidden="true" className="h-[5px] w-10 shrink-0 self-center rounded-[3px] bg-line" />

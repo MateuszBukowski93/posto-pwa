@@ -84,7 +84,6 @@
     "endFast": "End fast",
     "endFastReached": "End fast · goal reached",
     "startNow": "Start now",
-    "startedEarlier": "I started earlier",
     "announcePhase": "Fasting phase: {phase}",
     "announceGoal": "{goal} h goal reached"
   },
