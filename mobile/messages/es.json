@@ -1,0 +1,328 @@
+{
+  "common": {
+    "today": "Hoy",
+    "yesterday": "Ayer",
+    "tomorrow": "Mañana",
+    "dayBeforeYesterday": "Anteayer",
+    "dayTime": "{day}, {time}",
+    "durationHM": "{h} h {m} min",
+    "durationHMShort": "{h} h {m} m",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "close": "Cerrar",
+    "error": "Algo salió mal. Inténtalo de nuevo."
+  },
+  "nav": {
+    "label": "Navegación principal",
+    "timer": "Temporizador",
+    "history": "Historial",
+    "measurements": "Medidas",
+    "settings": "Ajustes"
+  },
+  "protocols": {
+    "p13_11": "Inicio suave",
+    "p14_10": "Para principiantes",
+    "p16_8": "El más popular",
+    "p18_6": "Avanzado",
+    "p20_4": "Guerrero",
+    "p23_1": "Una comida al día (OMAD)",
+    "desc": "{fast} h de ayuno · {eat} h de comida"
+  },
+  "phases": {
+    "digestion": {
+      "name": "Digestión",
+      "desc": "El cuerpo digiere la última comida y usa la energía disponible."
+    },
+    "stabilization": {
+      "name": "Estabilización",
+      "desc": "La insulina baja y el cuerpo empieza a usar sus reservas."
+    },
+    "fatBurning": {
+      "name": "Quema de grasa",
+      "desc": "El cuerpo recurre cada vez más a las reservas de grasa."
+    },
+    "ketosis": {
+      "name": "Cetosis",
+      "desc": "Aumenta la producción de cuerpos cetónicos."
+    },
+    "eating": {
+      "name": "Ventana de comida",
+      "desc": "Come con calma y de forma completa. El próximo ayuno empieza a las {time}."
+    },
+    "range": "{from}–{to} h",
+    "rangeOpen": "{from}–24+ h",
+    "eatingRange": "{hours} h"
+  },
+  "timer": {
+    "title": "Temporizador de ayuno",
+    "changeProtocol": "Cambiar protocolo, ahora {protocol}",
+    "labelFasting": "Ayunando",
+    "labelGoalReached": "Meta alcanzada",
+    "labelEating": "Ventana de comida",
+    "labelIdle": "Listo para ayunar",
+    "goalRemaining": "meta {goal} h · faltan {remaining}",
+    "overGoal": "+{over} sobre la meta",
+    "eatingOver": "hora de empezar el ayuno",
+    "idleSub": "meta {goal} h",
+    "start": "Inicio",
+    "editStart": "Editar inicio del ayuno, ahora {value}",
+    "goalCard": "Meta del ayuno",
+    "nextFast": "Próximo ayuno",
+    "notSet": "—",
+    "ringLabel": "Progreso del ayuno",
+    "hoursLabel": "Horas",
+    "phaseLabel": "Fase del ayuno",
+    "todayLabel": "Hoy",
+    "water": "Agua",
+    "waterOf": "de {goal}",
+    "addWater": "Añadir 250 ml de agua",
+    "weight": "Peso",
+    "weightDeltaYesterday": "{delta} kg desde ayer",
+    "weightDeltaSince": "{delta} kg desde {date}",
+    "weightFirst": "primera medida",
+    "weightEmpty": "Añadir medida",
+    "endFast": "Terminar ayuno",
+    "endFastReached": "Terminar · meta alcanzada",
+    "startNow": "Empezar ahora",
+    "announcePhase": "Fase del ayuno: {phase}",
+    "announceGoal": "Meta de {goal} h alcanzada"
+  },
+  "dayTime": {
+    "day": "Día",
+    "time": "Hora"
+  },
+  "startSheet": {
+    "title": "¿Cuándo empezaste el ayuno?",
+    "description": "Indica cuándo hiciste tu última comida. Contaremos el ayuno desde ese momento.",
+    "preview": "Llevas {duration} de ayuno",
+    "previewGoal": "Llevas {duration} de ayuno · meta de {goal} h alcanzada",
+    "future": "Esa hora aún no ha llegado. Elige una anterior.",
+    "beforePrevious": "Tu ayuno anterior terminó {when}. Elige una hora posterior.",
+    "invalid": "Introduce una hora.",
+    "save": "Guardar inicio"
+  },
+  "endSheet": {
+    "title": "¿Cuándo terminaste el ayuno?",
+    "description": "Indica la hora de tu primera comida. Así guardaremos la duración del ayuno.",
+    "preview": "El ayuno duró {duration}",
+    "previewGoal": "El ayuno duró {duration} · meta de {goal} h alcanzada",
+    "future": "Esa hora aún no ha llegado. Elige una anterior.",
+    "beforeStart": "El final no puede ser anterior al inicio del ayuno ({when}).",
+    "invalid": "Introduce una hora.",
+    "save": "Guardar final"
+  },
+  "endConfirm": {
+    "title": "¿Terminar el ayuno?",
+    "descriptionBelow": "Te faltan {missing} para tu meta de {goal} h. Puedes terminar ahora o indicar la hora de tu comida.",
+    "descriptionReached": "Meta de {goal} h alcanzada. El ayuno se guardará en el historial.",
+    "status": "Llevas {duration} de ayuno",
+    "endNow": "Terminar ahora",
+    "otherTime": "Indicar otra hora"
+  },
+  "welcome": {
+    "title": "Ayuno intermitente, sin complicaciones.",
+    "lead": "Temporizador de ayuno, fases, agua y peso en una app ligera.",
+    "ringLabel": "Ayunando",
+    "chipWater": "+250 ml",
+    "chipPhase": "Quema de grasa",
+    "benefitNoAccountTitle": "Sin registro ni cuenta",
+    "benefitNoAccountText": "Tus datos se quedan en tu teléfono.",
+    "benefitOfflineTitle": "Funciona sin internet",
+    "benefitOfflineText": "Todo se calcula en tu teléfono.",
+    "benefitFreeTitle": "Totalmente gratis",
+    "benefitFreeText": "Sin suscripciones ni costes ocultos.",
+    "start": "Empezar",
+    "legal": "Al usar Posto, aceptas los <terms>Términos de uso</terms> y la <privacy>Política de privacidad</privacy>."
+  },
+  "protocol": {
+    "title": "Protocolo de ayuno",
+    "description": "Elige el ritmo que mejor encaje con tu día. Puedes cambiarlo cuando quieras.",
+    "backToWelcome": "Volver a la pantalla de bienvenida",
+    "backToTimer": "Volver al temporizador",
+    "backCaption": "Temporizador",
+    "lastMeal": "Última comida",
+    "summarySameDay": "Ayuno: {start} → {end}",
+    "summaryNextDay": "Ayuno: {start} → {end} del día siguiente",
+    "save": "Guardar protocolo {protocol}",
+    "changeActiveTitle": "¿Cambiar la meta del ayuno actual?",
+    "changeActiveDescription": "Tu ayuno actual tiene una meta de {from} h. El nuevo protocolo propone {to} h.",
+    "changeActiveYes": "Sí, cambiar la meta a {goal} h",
+    "changeActiveNo": "No, solo los próximos ayunos"
+  },
+  "history": {
+    "title": "Historial",
+    "streakLabel": "Racha",
+    "streakDays": "{count, plural, one {día seguido} other {días seguidos}}",
+    "longestStreak": "Racha más larga: {count, plural, one {# día} other {# días}}",
+    "thisWeek": "Esta semana",
+    "goalShort": "meta {goal} h",
+    "weekdays": {
+      "mon": "Lu",
+      "tue": "Ma",
+      "wed": "Mi",
+      "thu": "Ju",
+      "fri": "Vi",
+      "sat": "Sá",
+      "sun": "Do"
+    },
+    "noFast": "sin ayuno",
+    "ongoing": "ayuno en curso",
+    "goalReached": "Meta alcanzada",
+    "belowGoal": "Por debajo de la meta",
+    "statsLabel": "Estadísticas de los últimos 28 días",
+    "average": "Media",
+    "longest": "Más largo",
+    "completed": "Logrados",
+    "hoursValue": "{value} h",
+    "recent": "Últimos ayunos",
+    "noCompleted": "Aquí aparecerán los ayunos terminados.",
+    "noCompletedActive": "Tu primer ayuno está en curso. Aparecerá aquí cuando lo termines.",
+    "emptyTitle": "Aquí verás tus ayunos",
+    "emptyText": "Tras tu primer ayuno terminado calcularemos tu racha, la media y el ayuno más largo.",
+    "startFirst": "Empezar el primer ayuno"
+  },
+  "fastEdit": {
+    "title": "Editar ayuno",
+    "start": "Inicio",
+    "end": "Final",
+    "preview": "El ayuno duró {duration}",
+    "previewGoal": "El ayuno duró {duration} · meta de {goal} h alcanzada",
+    "future": "Esa hora aún no ha llegado. Elige una anterior.",
+    "endBeforeStart": "El final debe ser posterior al inicio.",
+    "overlap": "Este intervalo se solapa con otro ayuno.",
+    "invalid": "Completa la fecha y la hora.",
+    "delete": "Eliminar ayuno",
+    "deleteTitle": "¿Eliminar este ayuno?",
+    "deleteDescription": "El ayuno desaparecerá del historial y de las estadísticas. No se puede deshacer.",
+    "deleteConfirm": "Eliminar"
+  },
+  "measurements": {
+    "title": "Medidas",
+    "addWeight": "Añadir peso",
+    "weight": "Peso",
+    "weightEmpty": "Añade tu primera medida y te mostraremos el cambio de peso y la tendencia de 30 días.",
+    "addFirstWeight": "Añadir primera medida",
+    "change30": "{delta} kg en 30 días",
+    "trendLabel": "Tendencia de peso en 30 días: de {from} a {to}",
+    "startValue": "Inicio {value}",
+    "goalValue": "Meta {value}",
+    "progressLabel": "Progreso hacia el peso objetivo",
+    "noGoal": "Fija un peso objetivo en Ajustes para ver tu progreso.",
+    "waterToday": "Agua hoy",
+    "removeWater": "Quitar 250 ml de agua",
+    "addWater": "+ 250 ml",
+    "recent": "Últimas medidas"
+  },
+  "weightSheet": {
+    "addTitle": "Añadir peso",
+    "editTitle": "Editar medida",
+    "kgLabel": "Peso",
+    "kgError": "Introduce un peso entre {min} y {max} kg, p. ej. 82,4.",
+    "dateLabel": "Fecha y hora",
+    "delete": "Eliminar medida",
+    "deleteTitle": "¿Eliminar la medida?",
+    "deleteDescription": "La medida de {value} desaparecerá de la lista y del gráfico.",
+    "deleteConfirm": "Eliminar"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "notifications": "Notificaciones",
+    "notifBeforeEnd": "Antes del fin del ayuno",
+    "notifBeforeEndSub": "30 min antes",
+    "notifEnd": "Fin del ayuno",
+    "notifEndSub": "Cuando alcances la meta",
+    "notifEatingEnd": "Fin de la ventana de comida",
+    "notifEatingEndSub": "1 h antes del inicio del ayuno",
+    "notifWater": "Beber agua",
+    "notifWaterSub": "Cada 2 h, de 8:00 a 20:00",
+    "notifDenied": "Las notificaciones de Posto están desactivadas en los ajustes del teléfono. Actívalas allí y vuelve a activar el interruptor.",
+    "notifOpenSettings": "Abrir ajustes",
+    "notifUnsupported": "Este dispositivo no admite notificaciones.",
+    "notifLimits": "Los recordatorios se programan con 3 días de antelación. Abre Posto de vez en cuando para seguir recibiéndolos.",
+    "appearance": "Aspecto e idioma",
+    "theme": "Tema",
+    "themeLight": "Claro",
+    "themeDark": "Oscuro",
+    "themeSystem": "Sistema",
+    "language": "Idioma de la app",
+    "languageSystem": "Como el teléfono",
+    "languageSystemSub": "Ahora: {language}",
+    "goals": "Metas",
+    "protocol": "Protocolo de ayuno",
+    "waterGoal": "Meta diaria de agua",
+    "weightGoal": "Peso objetivo",
+    "notSet": "Sin definir",
+    "support": "Apoya Posto",
+    "terms": "Términos de uso",
+    "privacy": "Privacidad",
+    "footerLabel": "Información",
+    "version": "Versión {version}"
+  },
+  "data": {
+    "title": "Datos",
+    "export": "Exportar datos",
+    "exportSub": "Archivo JSON con una copia de todos tus datos",
+    "import": "Importar datos",
+    "importSub": "Restaurar datos desde una copia",
+    "deleteAll": "Eliminar todos los datos",
+    "deleteAllSub": "Ayunos, medidas y ajustes de este dispositivo",
+    "exportUnavailable": "En este dispositivo no se puede compartir el archivo de copia.",
+    "errorJson": "No es una copia de Posto (JSON no válido).",
+    "errorFormat": "El archivo no parece una copia de Posto o está dañado.",
+    "errorVersion": "Este archivo es de una versión más reciente de Posto. Actualiza la app e inténtalo de nuevo.",
+    "importTitle": "¿Importar datos?",
+    "importDescription": "Los datos actuales de este dispositivo se sustituirán por el contenido del archivo.",
+    "importSummary": "En el archivo: {fasts, plural, one {# ayuno} other {# ayunos}} · {weights, plural, one {# registro de peso} other {# registros de peso}} · {water, plural, one {# registro de agua} other {# registros de agua}}",
+    "importExportedAt": "Copia del {date}",
+    "importConfirm": "Importar",
+    "importDone": "Tus datos se han importado.",
+    "deleteTitle": "¿Eliminar todos los datos?",
+    "deleteDescription": "Eliminaremos de este dispositivo todos los ayunos, registros de peso y agua y los ajustes. No se puede deshacer.",
+    "deleteHint": "Si quieres conservar una copia, exporta los datos primero.",
+    "deleteConfirm": "Eliminar todo"
+  },
+  "waterGoalSheet": {
+    "title": "Meta diaria de agua",
+    "description": "¿Cuánta agua quieres beber cada día? Cada paso es un vaso (250 ml).",
+    "decrease": "Reducir 250 ml",
+    "increase": "Aumentar 250 ml",
+    "glasses": "{count, plural, one {# vaso} other {# vasos}}"
+  },
+  "weightGoalSheet": {
+    "title": "Peso objetivo",
+    "description": "Lo usaremos para mostrar tu progreso. Puedes dejar los campos vacíos.",
+    "goal": "Peso objetivo (kg)",
+    "start": "Peso inicial (kg)",
+    "startHint": "Vacío = primera medida ({value}).",
+    "startHintEmpty": "Vacío = primera medida.",
+    "error": "Introduce un peso entre {min} y {max} kg o deja el campo vacío."
+  },
+  "legal": {
+    "back": "Volver",
+    "bindingNote": "Esta es una traducción al inglés. La versión vinculante es la polaca."
+  },
+  "notifications": {
+    "channelName": "Recordatorios",
+    "beforeEnd": {
+      "title": "Quedan 30 minutos",
+      "body": "Tu meta de {goal} h está muy cerca. Aguanta un poco más."
+    },
+    "end": {
+      "title": "Meta alcanzada",
+      "body": "Llevas {goal} h de ayuno. Puedes terminarlo en Posto."
+    },
+    "eatingWindowEnd": {
+      "title": "La ventana de comida acaba en una hora",
+      "body": "Tu próximo ayuno empieza a las {time}."
+    },
+    "water": {
+      "title": "Hora de beber agua",
+      "body": "Bebe un vaso de agua y regístralo en Posto."
+    }
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "Esta dirección no existe en Posto. Vuelve al temporizador.",
+    "home": "Ir al temporizador"
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "common": {
+    "today": "Hoje",
+    "yesterday": "Ontem",
+    "tomorrow": "Amanhã",
+    "dayBeforeYesterday": "Anteontem",
+    "dayTime": "{day}, {time}",
+    "durationHM": "{h} h {m} min",
+    "durationHMShort": "{h} h {m} m",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "close": "Fechar",
+    "error": "Algo correu mal. Tenta novamente."
+  },
+  "nav": {
+    "label": "Navegação principal",
+    "timer": "Temporizador",
+    "history": "Histórico",
+    "measurements": "Medições",
+    "settings": "Definições"
+  },
+  "protocols": {
+    "p13_11": "Início suave",
+    "p14_10": "Para iniciantes",
+    "p16_8": "O mais popular",
+    "p18_6": "Avançado",
+    "p20_4": "Guerreiro",
+    "p23_1": "Uma refeição por dia (OMAD)",
+    "desc": "{fast} h de jejum · {eat} h de refeições"
+  },
+  "phases": {
+    "digestion": {
+      "name": "Digestão",
+      "desc": "O corpo digere a última refeição e usa a energia disponível."
+    },
+    "stabilization": {
+      "name": "Estabilização",
+      "desc": "A insulina desce e o corpo passa a usar as reservas."
+    },
+    "fatBurning": {
+      "name": "Queima de gordura",
+      "desc": "O corpo recorre cada vez mais às reservas de gordura."
+    },
+    "ketosis": {
+      "name": "Cetose",
+      "desc": "Aumenta a produção de corpos cetónicos."
+    },
+    "eating": {
+      "name": "Janela alimentar",
+      "desc": "Come com calma e de forma completa. O próximo jejum começa às {time}."
+    },
+    "range": "{from}–{to} h",
+    "rangeOpen": "{from}–24+ h",
+    "eatingRange": "{hours} h"
+  },
+  "timer": {
+    "title": "Temporizador de jejum",
+    "changeProtocol": "Mudar protocolo, atual {protocol}",
+    "labelFasting": "Em jejum",
+    "labelGoalReached": "Meta atingida",
+    "labelEating": "Janela alimentar",
+    "labelIdle": "Pronto para jejuar",
+    "goalRemaining": "meta {goal} h · faltam {remaining}",
+    "overGoal": "+{over} acima da meta",
+    "eatingOver": "hora de começar o jejum",
+    "idleSub": "meta {goal} h",
+    "start": "Início",
+    "editStart": "Editar início do jejum, atual {value}",
+    "goalCard": "Meta do jejum",
+    "nextFast": "Próximo jejum",
+    "notSet": "—",
+    "ringLabel": "Progresso do jejum",
+    "hoursLabel": "Horários",
+    "phaseLabel": "Fase do jejum",
+    "todayLabel": "Hoje",
+    "water": "Água",
+    "waterOf": "de {goal}",
+    "addWater": "Adicionar 250 ml de água",
+    "weight": "Peso",
+    "weightDeltaYesterday": "{delta} kg desde ontem",
+    "weightDeltaSince": "{delta} kg desde {date}",
+    "weightFirst": "primeira medição",
+    "weightEmpty": "Adicionar medição",
+    "endFast": "Terminar jejum",
+    "endFastReached": "Terminar · meta atingida",
+    "startNow": "Começar agora",
+    "announcePhase": "Fase do jejum: {phase}",
+    "announceGoal": "Meta de {goal} h atingida"
+  },
+  "dayTime": {
+    "day": "Dia",
+    "time": "Hora"
+  },
+  "startSheet": {
+    "title": "Quando começaste o jejum?",
+    "description": "Indica quando fizeste a última refeição. Contamos o jejum a partir desse momento.",
+    "preview": "Em jejum há {duration}",
+    "previewGoal": "Em jejum há {duration} · meta de {goal} h atingida",
+    "future": "Essa hora ainda não chegou. Escolhe uma anterior.",
+    "beforePrevious": "O jejum anterior terminou {when}. Escolhe uma hora posterior.",
+    "invalid": "Introduz uma hora.",
+    "save": "Guardar início"
+  },
+  "endSheet": {
+    "title": "Quando terminaste o jejum?",
+    "description": "Indica a hora da primeira refeição. É assim que guardamos a duração do jejum.",
+    "preview": "O jejum durou {duration}",
+    "previewGoal": "O jejum durou {duration} · meta de {goal} h atingida",
+    "future": "Essa hora ainda não chegou. Escolhe uma anterior.",
+    "beforeStart": "O fim não pode ser anterior ao início do jejum ({when}).",
+    "invalid": "Introduz uma hora.",
+    "save": "Guardar fim"
+  },
+  "endConfirm": {
+    "title": "Terminar o jejum?",
+    "descriptionBelow": "Ainda faltam {missing} para a meta de {goal} h. Podes terminar agora ou indicar a hora da refeição.",
+    "descriptionReached": "Meta de {goal} h atingida. O jejum será guardado no histórico.",
+    "status": "Em jejum há {duration}",
+    "endNow": "Terminar agora",
+    "otherTime": "Indicar outra hora"
+  },
+  "welcome": {
+    "title": "Jejum intermitente, simplesmente.",
+    "lead": "Temporizador de jejum, fases, água e peso numa só app leve.",
+    "ringLabel": "Em jejum",
+    "chipWater": "+250 ml",
+    "chipPhase": "Queima de gordura",
+    "benefitNoAccountTitle": "Sem registo nem conta",
+    "benefitNoAccountText": "Os teus dados ficam no teu telemóvel.",
+    "benefitOfflineTitle": "Funciona sem internet",
+    "benefitOfflineText": "Tudo é calculado no teu telemóvel.",
+    "benefitFreeTitle": "Totalmente gratuita",
+    "benefitFreeText": "Sem subscrições nem custos ocultos.",
+    "start": "Vamos começar",
+    "legal": "Ao usar o Posto, aceitas os <terms>Termos de utilização</terms> e a <privacy>Política de privacidade</privacy>."
+  },
+  "protocol": {
+    "title": "Protocolo de jejum",
+    "description": "Escolhe o ritmo que encaixa no teu dia. Podes mudá-lo a qualquer momento.",
+    "backToWelcome": "Voltar ao ecrã de boas-vindas",
+    "backToTimer": "Voltar ao temporizador",
+    "backCaption": "Temporizador",
+    "lastMeal": "Última refeição",
+    "summarySameDay": "Jejum: {start} → {end}",
+    "summaryNextDay": "Jejum: {start} → {end} do dia seguinte",
+    "save": "Guardar protocolo {protocol}",
+    "changeActiveTitle": "Mudar a meta do jejum atual?",
+    "changeActiveDescription": "O jejum atual tem uma meta de {from} h. O novo protocolo prevê {to} h.",
+    "changeActiveYes": "Sim, mudar a meta para {goal} h",
+    "changeActiveNo": "Não, só os próximos jejuns"
+  },
+  "history": {
+    "title": "Histórico",
+    "streakLabel": "Sequência",
+    "streakDays": "{count, plural, one {dia seguido} other {dias seguidos}}",
+    "longestStreak": "Maior sequência: {count, plural, one {# dia} other {# dias}}",
+    "thisWeek": "Esta semana",
+    "goalShort": "meta {goal} h",
+    "weekdays": {
+      "mon": "Seg",
+      "tue": "Ter",
+      "wed": "Qua",
+      "thu": "Qui",
+      "fri": "Sex",
+      "sat": "Sáb",
+      "sun": "Dom"
+    },
+    "noFast": "sem jejum",
+    "ongoing": "jejum em curso",
+    "goalReached": "Meta atingida",
+    "belowGoal": "Abaixo da meta",
+    "statsLabel": "Estatísticas dos últimos 28 dias",
+    "average": "Média",
+    "longest": "Mais longo",
+    "completed": "Concluídos",
+    "hoursValue": "{value} h",
+    "recent": "Últimos jejuns",
+    "noCompleted": "Os jejuns terminados aparecem aqui.",
+    "noCompletedActive": "O teu primeiro jejum está em curso. Aparece aqui quando o terminares.",
+    "emptyTitle": "Aqui vais ver os teus jejuns",
+    "emptyText": "Depois do primeiro jejum terminado, calculamos a sequência, a média e o jejum mais longo.",
+    "startFirst": "Começar o primeiro jejum"
+  },
+  "fastEdit": {
+    "title": "Editar jejum",
+    "start": "Início",
+    "end": "Fim",
+    "preview": "O jejum durou {duration}",
+    "previewGoal": "O jejum durou {duration} · meta de {goal} h atingida",
+    "future": "Essa hora ainda não chegou. Escolhe uma anterior.",
+    "endBeforeStart": "O fim tem de ser depois do início.",
+    "overlap": "Este intervalo sobrepõe-se a outro jejum.",
+    "invalid": "Preenche a data e a hora.",
+    "delete": "Eliminar jejum",
+    "deleteTitle": "Eliminar este jejum?",
+    "deleteDescription": "O jejum desaparece do histórico e das estatísticas. Não é possível anular.",
+    "deleteConfirm": "Eliminar"
+  },
+  "measurements": {
+    "title": "Medições",
+    "addWeight": "Adicionar peso",
+    "weight": "Peso",
+    "weightEmpty": "Adiciona a primeira medição e mostramos a variação do peso e a tendência de 30 dias.",
+    "addFirstWeight": "Adicionar primeira medição",
+    "change30": "{delta} kg em 30 dias",
+    "trendLabel": "Tendência do peso em 30 dias: de {from} para {to}",
+    "startValue": "Início {value}",
+    "goalValue": "Meta {value}",
+    "progressLabel": "Progresso até ao peso-alvo",
+    "noGoal": "Define um peso-alvo nas Definições para veres o progresso.",
+    "waterToday": "Água hoje",
+    "removeWater": "Remover 250 ml de água",
+    "addWater": "+ 250 ml",
+    "recent": "Últimas medições"
+  },
+  "weightSheet": {
+    "addTitle": "Adicionar peso",
+    "editTitle": "Editar medição",
+    "kgLabel": "Peso",
+    "kgError": "Introduz um peso entre {min} e {max} kg, p. ex. 82,4.",
+    "dateLabel": "Data e hora",
+    "delete": "Eliminar medição",
+    "deleteTitle": "Eliminar a medição?",
+    "deleteDescription": "A medição de {value} desaparece da lista e do gráfico.",
+    "deleteConfirm": "Eliminar"
+  },
+  "settings": {
+    "title": "Definições",
+    "notifications": "Notificações",
+    "notifBeforeEnd": "Antes do fim do jejum",
+    "notifBeforeEndSub": "30 min antes",
+    "notifEnd": "Fim do jejum",
+    "notifEndSub": "Quando atingires a meta",
+    "notifEatingEnd": "Fim da janela alimentar",
+    "notifEatingEndSub": "1 h antes do início do jejum",
+    "notifWater": "Beber água",
+    "notifWaterSub": "A cada 2 h, das 8:00 às 20:00",
+    "notifDenied": "As notificações do Posto estão desativadas nas definições do telemóvel. Ativa-as lá e volta a ativar o interruptor.",
+    "notifOpenSettings": "Abrir definições",
+    "notifUnsupported": "Este dispositivo não suporta notificações.",
+    "notifLimits": "Os lembretes são agendados com 3 dias de antecedência. Abre o Posto de vez em quando para continuares a recebê-los.",
+    "appearance": "Aspeto e idioma",
+    "theme": "Tema",
+    "themeLight": "Claro",
+    "themeDark": "Escuro",
+    "themeSystem": "Sistema",
+    "language": "Idioma da app",
+    "languageSystem": "Como no telemóvel",
+    "languageSystemSub": "Atual: {language}",
+    "goals": "Metas",
+    "protocol": "Protocolo de jejum",
+    "waterGoal": "Meta diária de água",
+    "weightGoal": "Peso-alvo",
+    "notSet": "Não definido",
+    "support": "Apoiar o Posto",
+    "terms": "Termos",
+    "privacy": "Privacidade",
+    "footerLabel": "Informações",
+    "version": "Versão {version}"
+  },
+  "data": {
+    "title": "Dados",
+    "export": "Exportar dados",
+    "exportSub": "Ficheiro JSON com uma cópia de todos os dados",
+    "import": "Importar dados",
+    "importSub": "Restaurar dados a partir de uma cópia",
+    "deleteAll": "Eliminar todos os dados",
+    "deleteAllSub": "Jejuns, medições e definições deste dispositivo",
+    "exportUnavailable": "Neste dispositivo não é possível partilhar o ficheiro de cópia.",
+    "errorJson": "Não é uma cópia do Posto (JSON inválido).",
+    "errorFormat": "O ficheiro não parece uma cópia do Posto ou está danificado.",
+    "errorVersion": "Este ficheiro vem de uma versão mais recente do Posto. Atualiza a app e tenta novamente.",
+    "importTitle": "Importar dados?",
+    "importDescription": "Os dados atuais deste dispositivo serão substituídos pelo conteúdo do ficheiro.",
+    "importSummary": "No ficheiro: {fasts, plural, one {# jejum} other {# jejuns}} · {weights, plural, one {# registo de peso} other {# registos de peso}} · {water, plural, one {# registo de água} other {# registos de água}}",
+    "importExportedAt": "Cópia de {date}",
+    "importConfirm": "Importar",
+    "importDone": "Os teus dados foram importados.",
+    "deleteTitle": "Eliminar todos os dados?",
+    "deleteDescription": "Vamos eliminar deste dispositivo todos os jejuns, registos de peso e água e as definições. Não é possível anular.",
+    "deleteHint": "Se quiseres guardar uma cópia, exporta primeiro os dados.",
+    "deleteConfirm": "Eliminar tudo"
+  },
+  "waterGoalSheet": {
+    "title": "Meta diária de água",
+    "description": "Quanta água queres beber por dia? Cada passo é um copo (250 ml).",
+    "decrease": "Diminuir 250 ml",
+    "increase": "Aumentar 250 ml",
+    "glasses": "{count, plural, one {# copo} other {# copos}}"
+  },
+  "weightGoalSheet": {
+    "title": "Peso-alvo",
+    "description": "Usamos isto para mostrar o teu progresso. Podes deixar os campos vazios.",
+    "goal": "Peso-alvo (kg)",
+    "start": "Peso inicial (kg)",
+    "startHint": "Vazio = primeira medição ({value}).",
+    "startHintEmpty": "Vazio = primeira medição.",
+    "error": "Introduz um peso entre {min} e {max} kg ou deixa o campo vazio."
+  },
+  "legal": {
+    "back": "Voltar",
+    "bindingNote": "Esta é uma tradução para inglês. A versão vinculativa é a polaca."
+  },
+  "notifications": {
+    "channelName": "Lembretes",
+    "beforeEnd": {
+      "title": "Faltam 30 minutos",
+      "body": "A meta de {goal} h está quase. Aguenta só mais um pouco."
+    },
+    "end": {
+      "title": "Meta atingida",
+      "body": "Fizeste {goal} h de jejum. Podes terminá-lo no Posto."
+    },
+    "eatingWindowEnd": {
+      "title": "A janela alimentar termina dentro de uma hora",
+      "body": "O próximo jejum começa às {time}."
+    },
+    "water": {
+      "title": "Hora de beber água",
+      "body": "Bebe um copo de água e regista-o no Posto."
+    }
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "description": "Este endereço não existe no Posto. Volta ao temporizador.",
+    "home": "Ir para o temporizador"
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "common": {
+    "today": "Dziś",
+    "yesterday": "Wczoraj",
+    "tomorrow": "Jutro",
+    "dayBeforeYesterday": "Przedwczoraj",
+    "dayTime": "{day}, {time}",
+    "durationHM": "{h} h {m} min",
+    "durationHMShort": "{h} h {m} m",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "close": "Zamknij",
+    "error": "Coś poszło nie tak. Spróbuj ponownie."
+  },
+  "nav": {
+    "label": "Nawigacja główna",
+    "timer": "Timer",
+    "history": "Historia",
+    "measurements": "Pomiary",
+    "settings": "Ustawienia"
+  },
+  "protocols": {
+    "p13_11": "Łagodny start",
+    "p14_10": "Dla początkujących",
+    "p16_8": "Najpopularniejszy",
+    "p18_6": "Zaawansowany",
+    "p20_4": "Wojownik",
+    "p23_1": "Jeden posiłek (OMAD)",
+    "desc": "{fast} h postu · {eat} h jedzenia"
+  },
+  "phases": {
+    "digestion": {
+      "name": "Trawienie",
+      "desc": "Organizm trawi ostatni posiłek i korzysta z bieżącej energii."
+    },
+    "stabilization": {
+      "name": "Stabilizacja",
+      "desc": "Poziom insuliny spada, organizm przestawia się na zapasy."
+    },
+    "fatBurning": {
+      "name": "Spalanie tłuszczu",
+      "desc": "Organizm coraz chętniej sięga po zapasy tłuszczu."
+    },
+    "ketosis": {
+      "name": "Ketoza",
+      "desc": "Rośnie produkcja ciał ketonowych."
+    },
+    "eating": {
+      "name": "Okno jedzenia",
+      "desc": "Jedz spokojnie i pełnowartościowo. Kolejny post zacznie się o {time}."
+    },
+    "range": "{from}–{to} h",
+    "rangeOpen": "{from}–24+ h",
+    "eatingRange": "{hours} h"
+  },
+  "timer": {
+    "title": "Timer postu",
+    "changeProtocol": "Zmień protokół, obecnie {protocol}",
+    "labelFasting": "Poszczę",
+    "labelGoalReached": "Cel osiągnięty",
+    "labelEating": "Okno jedzenia",
+    "labelIdle": "Gotowy do postu",
+    "goalRemaining": "cel {goal} h · zostało {remaining}",
+    "overGoal": "+{over} ponad cel",
+    "eatingOver": "pora zacząć post",
+    "idleSub": "cel {goal} h",
+    "start": "Początek",
+    "editStart": "Edytuj początek postu, obecnie {value}",
+    "goalCard": "Cel postu",
+    "nextFast": "Następny post",
+    "notSet": "—",
+    "ringLabel": "Postęp postu",
+    "hoursLabel": "Godziny",
+    "phaseLabel": "Faza postu",
+    "todayLabel": "Dzisiaj",
+    "water": "Woda",
+    "waterOf": "z {goal}",
+    "addWater": "Dodaj 250 ml wody",
+    "weight": "Waga",
+    "weightDeltaYesterday": "{delta} kg od wczoraj",
+    "weightDeltaSince": "{delta} kg od {date}",
+    "weightFirst": "pierwszy pomiar",
+    "weightEmpty": "Dodaj pomiar",
+    "endFast": "Zakończ post",
+    "endFastReached": "Zakończ post · cel osiągnięty",
+    "startNow": "Rozpocznij teraz",
+    "announcePhase": "Faza postu: {phase}",
+    "announceGoal": "Cel {goal} h osiągnięty"
+  },
+  "dayTime": {
+    "day": "Dzień",
+    "time": "Godzina"
+  },
+  "startSheet": {
+    "title": "Kiedy zacząłeś post?",
+    "description": "Podaj, kiedy zjadłeś ostatni posiłek. Od tej chwili policzymy czas postu.",
+    "preview": "Post trwa już {duration}",
+    "previewGoal": "Post trwa już {duration} · cel {goal} h osiągnięty",
+    "future": "Ta godzina jeszcze nie nadeszła. Wybierz wcześniejszą.",
+    "beforePrevious": "Poprzedni post zakończył się {when}. Wybierz późniejszą godzinę.",
+    "invalid": "Wpisz godzinę.",
+    "save": "Zapisz start"
+  },
+  "endSheet": {
+    "title": "Kiedy zakończyłeś post?",
+    "description": "Podaj godzinę pierwszego posiłku. Tak zapiszemy długość postu.",
+    "preview": "Post trwał {duration}",
+    "previewGoal": "Post trwał {duration} · cel {goal} h osiągnięty",
+    "future": "Ta godzina jeszcze nie nadeszła. Wybierz wcześniejszą.",
+    "beforeStart": "Koniec nie może być wcześniej niż początek postu ({when}).",
+    "invalid": "Wpisz godzinę.",
+    "save": "Zapisz koniec"
+  },
+  "endConfirm": {
+    "title": "Zakończyć post?",
+    "descriptionBelow": "Do celu {goal} h brakuje jeszcze {missing}. Możesz zakończyć teraz albo podać godzinę, o której zjadłeś posiłek.",
+    "descriptionReached": "Cel {goal} h osiągnięty. Post trafi do historii.",
+    "status": "Post trwa {duration}",
+    "endNow": "Zakończ teraz",
+    "otherTime": "Ustaw inną godzinę"
+  },
+  "welcome": {
+    "title": "Post przerywany, po prostu.",
+    "lead": "Timer postu, fazy, woda i waga w jednej lekkiej aplikacji.",
+    "ringLabel": "Poszczę",
+    "chipWater": "+250 ml",
+    "chipPhase": "Spalanie tłuszczu",
+    "benefitNoAccountTitle": "Bez logowania i zakładania konta",
+    "benefitNoAccountText": "Twoje dane zostają na Twoim telefonie.",
+    "benefitOfflineTitle": "Działa bez internetu",
+    "benefitOfflineText": "Wszystko liczy się na Twoim telefonie.",
+    "benefitFreeTitle": "Całkowicie bezpłatna",
+    "benefitFreeText": "Bez subskrypcji i ukrytych opłat.",
+    "start": "Zaczynamy",
+    "legal": "Korzystając z Posto, akceptujesz <terms>Regulamin</terms> i <privacy>Politykę prywatności</privacy>."
+  },
+  "protocol": {
+    "title": "Protokół postu",
+    "description": "Wybierz rytm, który pasuje do Twojego dnia. Możesz go zmienić w każdej chwili.",
+    "backToWelcome": "Wróć do ekranu powitalnego",
+    "backToTimer": "Wróć do timera",
+    "backCaption": "Timer",
+    "lastMeal": "Ostatni posiłek",
+    "summarySameDay": "Post: {start} → {end}",
+    "summaryNextDay": "Post: {start} → {end} następnego dnia",
+    "save": "Zapisz protokół {protocol}",
+    "changeActiveTitle": "Zmienić cel bieżącego postu?",
+    "changeActiveDescription": "Trwający post ma cel {from} h. Nowy protokół zakłada {to} h.",
+    "changeActiveYes": "Tak, zmień cel na {goal} h",
+    "changeActiveNo": "Nie, tylko kolejne posty"
+  },
+  "history": {
+    "title": "Historia",
+    "streakLabel": "Seria",
+    "streakDays": "{count, plural, one {dzień z rzędu} few {dni z rzędu} many {dni z rzędu} other {dnia z rzędu}}",
+    "longestStreak": "Najdłuższa seria: {count, plural, one {# dzień} few {# dni} many {# dni} other {# dnia}}",
+    "thisWeek": "Ten tydzień",
+    "goalShort": "cel {goal} h",
+    "weekdays": {
+      "mon": "Pn",
+      "tue": "Wt",
+      "wed": "Śr",
+      "thu": "Cz",
+      "fri": "Pt",
+      "sat": "So",
+      "sun": "Nd"
+    },
+    "noFast": "brak postu",
+    "ongoing": "trwający post",
+    "goalReached": "Cel osiągnięty",
+    "belowGoal": "Poniżej celu",
+    "statsLabel": "Statystyki z ostatnich 28 dni",
+    "average": "Średnio",
+    "longest": "Najdłuższy",
+    "completed": "Ukończone",
+    "hoursValue": "{value} h",
+    "recent": "Ostatnie posty",
+    "noCompleted": "Zakończone posty pojawią się tutaj.",
+    "noCompletedActive": "Twój pierwszy post trwa. Po zakończeniu pojawi się tutaj.",
+    "emptyTitle": "Tu zobaczysz swoje posty",
+    "emptyText": "Po pierwszym zakończonym poście policzymy serię, średnią i najdłuższy post.",
+    "startFirst": "Rozpocznij pierwszy post"
+  },
+  "fastEdit": {
+    "title": "Edytuj post",
+    "start": "Początek",
+    "end": "Koniec",
+    "preview": "Post trwał {duration}",
+    "previewGoal": "Post trwał {duration} · cel {goal} h osiągnięty",
+    "future": "Ta godzina jeszcze nie nadeszła. Wybierz wcześniejszą.",
+    "endBeforeStart": "Koniec musi być później niż początek.",
+    "overlap": "Ten zakres nakłada się na inny post.",
+    "invalid": "Uzupełnij datę i godzinę.",
+    "delete": "Usuń post",
+    "deleteTitle": "Usunąć ten post?",
+    "deleteDescription": "Post zniknie z historii i statystyk. Tej operacji nie da się cofnąć.",
+    "deleteConfirm": "Usuń"
+  },
+  "measurements": {
+    "title": "Pomiary",
+    "addWeight": "Dodaj wagę",
+    "weight": "Waga",
+    "weightEmpty": "Dodaj pierwszy pomiar, a pokażemy zmianę wagi i linię trendu z 30 dni.",
+    "addFirstWeight": "Dodaj pierwszy pomiar",
+    "change30": "{delta} kg w 30 dni",
+    "trendLabel": "Trend wagi z 30 dni: od {from} do {to}",
+    "startValue": "Start {value}",
+    "goalValue": "Cel {value}",
+    "progressLabel": "Postęp do docelowej wagi",
+    "noGoal": "Ustaw docelową wagę w Ustawieniach, aby zobaczyć postęp.",
+    "waterToday": "Woda dziś",
+    "removeWater": "Usuń 250 ml wody",
+    "addWater": "+ 250 ml",
+    "recent": "Ostatnie pomiary"
+  },
+  "weightSheet": {
+    "addTitle": "Dodaj wagę",
+    "editTitle": "Edytuj pomiar",
+    "kgLabel": "Waga",
+    "kgError": "Podaj wagę od {min} do {max} kg, np. 82,4.",
+    "dateLabel": "Data i godzina",
+    "delete": "Usuń pomiar",
+    "deleteTitle": "Usunąć pomiar?",
+    "deleteDescription": "Pomiar {value} zniknie z listy i wykresu.",
+    "deleteConfirm": "Usuń"
+  },
+  "settings": {
+    "title": "Ustawienia",
+    "notifications": "Powiadomienia",
+    "notifBeforeEnd": "Przed końcem postu",
+    "notifBeforeEndSub": "30 min wcześniej",
+    "notifEnd": "Koniec postu",
+    "notifEndSub": "Gdy osiągniesz cel",
+    "notifEatingEnd": "Koniec okna jedzenia",
+    "notifEatingEndSub": "1 h przed startem postu",
+    "notifWater": "Picie wody",
+    "notifWaterSub": "Co 2 h, od 8:00 do 20:00",
+    "notifDenied": "Powiadomienia od Posto są wyłączone w ustawieniach telefonu. Włącz je tam, a potem włącz przełącznik ponownie.",
+    "notifOpenSettings": "Otwórz ustawienia",
+    "notifUnsupported": "To urządzenie nie obsługuje powiadomień.",
+    "notifLimits": "Przypomnienia planujemy na 3 dni do przodu. Otwieraj Posto co jakiś czas, żeby przychodziły dalej.",
+    "appearance": "Wygląd i język",
+    "theme": "Motyw",
+    "themeLight": "Jasny",
+    "themeDark": "Ciemny",
+    "themeSystem": "Systemowy",
+    "language": "Język aplikacji",
+    "languageSystem": "Jak w telefonie",
+    "languageSystemSub": "Teraz: {language}",
+    "goals": "Cele",
+    "protocol": "Protokół postu",
+    "waterGoal": "Dzienny cel wody",
+    "weightGoal": "Docelowa waga",
+    "notSet": "Nie ustawiono",
+    "support": "Wesprzyj Posto",
+    "terms": "Regulamin",
+    "privacy": "Polityka prywatności",
+    "footerLabel": "Informacje",
+    "version": "Wersja {version}"
+  },
+  "data": {
+    "title": "Dane",
+    "export": "Eksportuj dane",
+    "exportSub": "Plik JSON z kopią wszystkich danych",
+    "import": "Importuj dane",
+    "importSub": "Przywróć dane z pliku kopii",
+    "deleteAll": "Usuń wszystkie dane",
+    "deleteAllSub": "Posty, pomiary i ustawienia z tego urządzenia",
+    "exportUnavailable": "Na tym urządzeniu nie można udostępnić pliku z kopią.",
+    "errorJson": "To nie jest plik kopii Posto (niepoprawny format JSON).",
+    "errorFormat": "Plik nie wygląda na kopię Posto albo jest uszkodzony.",
+    "errorVersion": "Ten plik pochodzi z nowszej wersji Posto. Zaktualizuj aplikację i spróbuj ponownie.",
+    "importTitle": "Zaimportować dane?",
+    "importDescription": "Obecne dane na tym urządzeniu zostaną zastąpione zawartością pliku.",
+    "importSummary": "W pliku: {fasts, plural, one {# post} few {# posty} many {# postów} other {# postu}} · {weights, plural, one {# pomiar wagi} few {# pomiary wagi} many {# pomiarów wagi} other {# pomiaru wagi}} · {water, plural, one {# wpis wody} few {# wpisy wody} many {# wpisów wody} other {# wpisu wody}}",
+    "importExportedAt": "Kopia z {date}",
+    "importConfirm": "Importuj",
+    "importDone": "Dane zostały zaimportowane.",
+    "deleteTitle": "Usunąć wszystkie dane?",
+    "deleteDescription": "Usuniemy z tego urządzenia wszystkie posty, pomiary wagi i wody oraz ustawienia. Tej operacji nie da się cofnąć.",
+    "deleteHint": "Jeśli chcesz zachować kopię, najpierw wyeksportuj dane.",
+    "deleteConfirm": "Usuń wszystko"
+  },
+  "waterGoalSheet": {
+    "title": "Dzienny cel wody",
+    "description": "Ile wody chcesz wypijać każdego dnia? Krok to jedna szklanka (250 ml).",
+    "decrease": "Zmniejsz o 250 ml",
+    "increase": "Zwiększ o 250 ml",
+    "glasses": "{count, plural, one {# szklanka} few {# szklanki} many {# szklanek} other {# szklanki}}"
+  },
+  "weightGoalSheet": {
+    "title": "Docelowa waga",
+    "description": "Na tej podstawie pokażemy postęp w Pomiarach. Pola możesz zostawić puste.",
+    "goal": "Docelowa waga (kg)",
+    "start": "Waga startowa (kg)",
+    "startHint": "Puste pole = pierwszy pomiar ({value}).",
+    "startHintEmpty": "Puste pole = pierwszy pomiar.",
+    "error": "Podaj wagę od {min} do {max} kg albo zostaw pole puste."
+  },
+  "legal": {
+    "back": "Wróć",
+    "bindingNote": "To tłumaczenie na język angielski. Wiążąca jest wersja polska."
+  },
+  "notifications": {
+    "channelName": "Przypomnienia",
+    "beforeEnd": {
+      "title": "Za 30 minut koniec postu",
+      "body": "Cel {goal} h jest tuż-tuż. Wytrwaj jeszcze chwilę."
+    },
+    "end": {
+      "title": "Cel osiągnięty",
+      "body": "Masz za sobą {goal} h postu. Możesz go zakończyć w Posto."
+    },
+    "eatingWindowEnd": {
+      "title": "Okno jedzenia kończy się za godzinę",
+      "body": "Kolejny post zaczyna się o {time}."
+    },
+    "water": {
+      "title": "Czas na wodę",
+      "body": "Wypij szklankę wody i dodaj ją w Posto."
+    }
+  },
+  "notFound": {
+    "title": "Nie ma takiej strony",
+    "description": "Ten adres nie istnieje w Posto. Wróć do timera.",
+    "home": "Przejdź do timera"
+  }
+}

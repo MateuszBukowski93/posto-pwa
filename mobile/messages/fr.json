@@ -1,0 +1,328 @@
+{
+  "common": {
+    "today": "Aujourd’hui",
+    "yesterday": "Hier",
+    "tomorrow": "Demain",
+    "dayBeforeYesterday": "Avant-hier",
+    "dayTime": "{day}, {time}",
+    "durationHM": "{h} h {m} min",
+    "durationHMShort": "{h} h {m}",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "close": "Fermer",
+    "error": "Un problème est survenu. Réessaie."
+  },
+  "nav": {
+    "label": "Navigation principale",
+    "timer": "Minuteur",
+    "history": "Historique",
+    "measurements": "Mesures",
+    "settings": "Réglages"
+  },
+  "protocols": {
+    "p13_11": "Début en douceur",
+    "p14_10": "Pour débuter",
+    "p16_8": "Le plus populaire",
+    "p18_6": "Avancé",
+    "p20_4": "Guerrier",
+    "p23_1": "Un repas par jour (OMAD)",
+    "desc": "{fast} h de jeûne · {eat} h de repas"
+  },
+  "phases": {
+    "digestion": {
+      "name": "Digestion",
+      "desc": "Le corps digère le dernier repas et utilise l’énergie disponible."
+    },
+    "stabilization": {
+      "name": "Stabilisation",
+      "desc": "L’insuline baisse, le corps passe sur ses réserves."
+    },
+    "fatBurning": {
+      "name": "Combustion des graisses",
+      "desc": "Le corps puise de plus en plus dans ses réserves de graisse."
+    },
+    "ketosis": {
+      "name": "Cétose",
+      "desc": "La production de corps cétoniques augmente."
+    },
+    "eating": {
+      "name": "Fenêtre alimentaire",
+      "desc": "Mange tranquillement et de façon équilibrée. Le prochain jeûne commence à {time}."
+    },
+    "range": "{from}–{to} h",
+    "rangeOpen": "{from}–24+ h",
+    "eatingRange": "{hours} h"
+  },
+  "timer": {
+    "title": "Minuteur de jeûne",
+    "changeProtocol": "Changer de protocole, actuellement {protocol}",
+    "labelFasting": "Je jeûne",
+    "labelGoalReached": "Objectif atteint",
+    "labelEating": "Fenêtre alimentaire",
+    "labelIdle": "Prêt à jeûner",
+    "goalRemaining": "objectif {goal} h · encore {remaining}",
+    "overGoal": "+{over} au-delà de l’objectif",
+    "eatingOver": "il est temps de jeûner",
+    "idleSub": "objectif {goal} h",
+    "start": "Début",
+    "editStart": "Modifier le début du jeûne, actuellement {value}",
+    "goalCard": "Objectif",
+    "nextFast": "Prochain jeûne",
+    "notSet": "—",
+    "ringLabel": "Progression du jeûne",
+    "hoursLabel": "Horaires",
+    "phaseLabel": "Phase du jeûne",
+    "todayLabel": "Aujourd’hui",
+    "water": "Eau",
+    "waterOf": "sur {goal}",
+    "addWater": "Ajouter 250 ml d’eau",
+    "weight": "Poids",
+    "weightDeltaYesterday": "{delta} kg depuis hier",
+    "weightDeltaSince": "{delta} kg depuis {date}",
+    "weightFirst": "première mesure",
+    "weightEmpty": "Ajouter une mesure",
+    "endFast": "Terminer le jeûne",
+    "endFastReached": "Terminer · objectif atteint",
+    "startNow": "Commencer",
+    "announcePhase": "Phase du jeûne : {phase}",
+    "announceGoal": "Objectif de {goal} h atteint"
+  },
+  "dayTime": {
+    "day": "Jour",
+    "time": "Heure"
+  },
+  "startSheet": {
+    "title": "Quand as-tu commencé à jeûner ?",
+    "description": "Indique l’heure de ton dernier repas. Nous compterons le jeûne à partir de ce moment.",
+    "preview": "Jeûne en cours depuis {duration}",
+    "previewGoal": "Jeûne en cours depuis {duration} · objectif de {goal} h atteint",
+    "future": "Cette heure n’est pas encore arrivée. Choisis-en une plus tôt.",
+    "beforePrevious": "Ton jeûne précédent s’est terminé {when}. Choisis une heure plus tardive.",
+    "invalid": "Saisis une heure.",
+    "save": "Enregistrer le début"
+  },
+  "endSheet": {
+    "title": "Quand as-tu terminé le jeûne ?",
+    "description": "Indique l’heure de ton premier repas. Nous enregistrerons la durée du jeûne en conséquence.",
+    "preview": "Le jeûne a duré {duration}",
+    "previewGoal": "Le jeûne a duré {duration} · objectif de {goal} h atteint",
+    "future": "Cette heure n’est pas encore arrivée. Choisis-en une plus tôt.",
+    "beforeStart": "La fin ne peut pas précéder le début du jeûne ({when}).",
+    "invalid": "Saisis une heure.",
+    "save": "Enregistrer la fin"
+  },
+  "endConfirm": {
+    "title": "Terminer le jeûne ?",
+    "descriptionBelow": "Il te manque encore {missing} pour atteindre l’objectif de {goal} h. Tu peux terminer maintenant ou indiquer l’heure de ton repas.",
+    "descriptionReached": "Objectif de {goal} h atteint. Le jeûne sera enregistré dans l’historique.",
+    "status": "Jeûne en cours depuis {duration}",
+    "endNow": "Terminer",
+    "otherTime": "Indiquer une autre heure"
+  },
+  "welcome": {
+    "title": "Le jeûne intermittent, tout simplement.",
+    "lead": "Minuteur de jeûne, phases, eau et poids dans une seule appli légère.",
+    "ringLabel": "Je jeûne",
+    "chipWater": "+250 ml",
+    "chipPhase": "Combustion des graisses",
+    "benefitNoAccountTitle": "Sans inscription ni compte",
+    "benefitNoAccountText": "Tes données restent sur ton téléphone.",
+    "benefitOfflineTitle": "Fonctionne hors ligne",
+    "benefitOfflineText": "Tout est calculé sur ton téléphone.",
+    "benefitFreeTitle": "Entièrement gratuite",
+    "benefitFreeText": "Sans abonnement ni frais cachés.",
+    "start": "C’est parti",
+    "legal": "En utilisant Posto, tu acceptes les <terms>Conditions d’utilisation</terms> et la <privacy>Politique de confidentialité</privacy>."
+  },
+  "protocol": {
+    "title": "Protocole de jeûne",
+    "description": "Choisis le rythme qui convient à ta journée. Tu peux le changer à tout moment.",
+    "backToWelcome": "Retour à l’écran d’accueil",
+    "backToTimer": "Retour au minuteur",
+    "backCaption": "Minuteur",
+    "lastMeal": "Dernier repas",
+    "summarySameDay": "Jeûne : {start} → {end}",
+    "summaryNextDay": "Jeûne : {start} → {end} le lendemain",
+    "save": "Enregistrer le protocole {protocol}",
+    "changeActiveTitle": "Changer l’objectif du jeûne en cours ?",
+    "changeActiveDescription": "Ton jeûne en cours a un objectif de {from} h. Le nouveau protocole prévoit {to} h.",
+    "changeActiveYes": "Oui, passer l’objectif à {goal} h",
+    "changeActiveNo": "Non, seulement les prochains"
+  },
+  "history": {
+    "title": "Historique",
+    "streakLabel": "Série",
+    "streakDays": "{count, plural, one {jour d’affilée} other {jours d’affilée}}",
+    "longestStreak": "Plus longue série : {count, plural, one {# jour} other {# jours}}",
+    "thisWeek": "Cette semaine",
+    "goalShort": "objectif {goal} h",
+    "weekdays": {
+      "mon": "Lu",
+      "tue": "Ma",
+      "wed": "Me",
+      "thu": "Je",
+      "fri": "Ve",
+      "sat": "Sa",
+      "sun": "Di"
+    },
+    "noFast": "pas de jeûne",
+    "ongoing": "jeûne en cours",
+    "goalReached": "Objectif atteint",
+    "belowGoal": "Sous l’objectif",
+    "statsLabel": "Statistiques des 28 derniers jours",
+    "average": "Moyenne",
+    "longest": "Le plus long",
+    "completed": "Réussis",
+    "hoursValue": "{value} h",
+    "recent": "Derniers jeûnes",
+    "noCompleted": "Les jeûnes terminés apparaîtront ici.",
+    "noCompletedActive": "Ton premier jeûne est en cours. Il apparaîtra ici une fois terminé.",
+    "emptyTitle": "Tes jeûnes apparaîtront ici",
+    "emptyText": "Après ton premier jeûne terminé, nous calculerons ta série, ta moyenne et ton jeûne le plus long.",
+    "startFirst": "Commencer mon premier jeûne"
+  },
+  "fastEdit": {
+    "title": "Modifier le jeûne",
+    "start": "Début",
+    "end": "Fin",
+    "preview": "Le jeûne a duré {duration}",
+    "previewGoal": "Le jeûne a duré {duration} · objectif de {goal} h atteint",
+    "future": "Cette heure n’est pas encore arrivée. Choisis-en une plus tôt.",
+    "endBeforeStart": "La fin doit être après le début.",
+    "overlap": "Cette plage chevauche un autre jeûne.",
+    "invalid": "Renseigne la date et l’heure.",
+    "delete": "Supprimer le jeûne",
+    "deleteTitle": "Supprimer ce jeûne ?",
+    "deleteDescription": "Le jeûne disparaîtra de l’historique et des statistiques. Cette action est irréversible.",
+    "deleteConfirm": "Supprimer"
+  },
+  "measurements": {
+    "title": "Mesures",
+    "addWeight": "Ajouter",
+    "weight": "Poids",
+    "weightEmpty": "Ajoute ta première mesure pour voir l’évolution du poids et la tendance sur 30 jours.",
+    "addFirstWeight": "Ajouter une première mesure",
+    "change30": "{delta} kg en 30 jours",
+    "trendLabel": "Tendance du poids sur 30 jours : de {from} à {to}",
+    "startValue": "Départ {value}",
+    "goalValue": "Objectif {value}",
+    "progressLabel": "Progression vers le poids cible",
+    "noGoal": "Définis un poids cible dans les Réglages pour voir ta progression.",
+    "waterToday": "Eau aujourd’hui",
+    "removeWater": "Retirer 250 ml d’eau",
+    "addWater": "+ 250 ml",
+    "recent": "Dernières mesures"
+  },
+  "weightSheet": {
+    "addTitle": "Ajouter un poids",
+    "editTitle": "Modifier la mesure",
+    "kgLabel": "Poids",
+    "kgError": "Saisis un poids entre {min} et {max} kg, par ex. 82,4.",
+    "dateLabel": "Date et heure",
+    "delete": "Supprimer la mesure",
+    "deleteTitle": "Supprimer la mesure ?",
+    "deleteDescription": "La mesure de {value} disparaîtra de la liste et du graphique.",
+    "deleteConfirm": "Supprimer"
+  },
+  "settings": {
+    "title": "Réglages",
+    "notifications": "Notifications",
+    "notifBeforeEnd": "Avant la fin du jeûne",
+    "notifBeforeEndSub": "30 min avant",
+    "notifEnd": "Fin du jeûne",
+    "notifEndSub": "Quand tu atteins l’objectif",
+    "notifEatingEnd": "Fin de la fenêtre alimentaire",
+    "notifEatingEndSub": "1 h avant le début du jeûne",
+    "notifWater": "Boire de l’eau",
+    "notifWaterSub": "Toutes les 2 h, de 8:00 à 20:00",
+    "notifDenied": "Les notifications de Posto sont désactivées dans les réglages de ton téléphone. Active-les, puis réactive l’interrupteur.",
+    "notifOpenSettings": "Ouvrir les réglages",
+    "notifUnsupported": "Cet appareil ne prend pas en charge les notifications.",
+    "notifLimits": "Les rappels sont planifiés 3 jours à l’avance. Ouvre Posto de temps en temps pour continuer à les recevoir.",
+    "appearance": "Apparence et langue",
+    "theme": "Thème",
+    "themeLight": "Clair",
+    "themeDark": "Sombre",
+    "themeSystem": "Système",
+    "language": "Langue de l’appli",
+    "languageSystem": "Comme le téléphone",
+    "languageSystemSub": "Actuellement : {language}",
+    "goals": "Objectifs",
+    "protocol": "Protocole de jeûne",
+    "waterGoal": "Objectif d’eau quotidien",
+    "weightGoal": "Poids cible",
+    "notSet": "Non défini",
+    "support": "Soutenir Posto",
+    "terms": "Conditions",
+    "privacy": "Confidentialité",
+    "footerLabel": "Informations",
+    "version": "Version {version}"
+  },
+  "data": {
+    "title": "Données",
+    "export": "Exporter les données",
+    "exportSub": "Fichier JSON avec une copie de toutes tes données",
+    "import": "Importer des données",
+    "importSub": "Restaurer depuis un fichier de sauvegarde",
+    "deleteAll": "Supprimer toutes les données",
+    "deleteAllSub": "Jeûnes, mesures et réglages de cet appareil",
+    "exportUnavailable": "Le partage du fichier de sauvegarde n’est pas disponible sur cet appareil.",
+    "errorJson": "Ce n’est pas une sauvegarde Posto (JSON non valide).",
+    "errorFormat": "Le fichier ne ressemble pas à une sauvegarde Posto ou il est endommagé.",
+    "errorVersion": "Ce fichier provient d’une version plus récente de Posto. Mets l’appli à jour et réessaie.",
+    "importTitle": "Importer les données ?",
+    "importDescription": "Les données actuelles de cet appareil seront remplacées par le contenu du fichier.",
+    "importSummary": "Dans le fichier : {fasts, plural, one {# jeûne} other {# jeûnes}} · {weights, plural, one {# pesée} other {# pesées}} · {water, plural, one {# entrée d’eau} other {# entrées d’eau}}",
+    "importExportedAt": "Sauvegarde du {date}",
+    "importConfirm": "Importer",
+    "importDone": "Tes données ont été importées.",
+    "deleteTitle": "Supprimer toutes les données ?",
+    "deleteDescription": "Nous supprimerons de cet appareil tous les jeûnes, pesées, entrées d’eau et réglages. Cette action est irréversible.",
+    "deleteHint": "Pour garder une copie, exporte d’abord tes données.",
+    "deleteConfirm": "Tout supprimer"
+  },
+  "waterGoalSheet": {
+    "title": "Objectif d’eau quotidien",
+    "description": "Combien d’eau veux-tu boire chaque jour ? Un pas correspond à un verre (250 ml).",
+    "decrease": "Diminuer de 250 ml",
+    "increase": "Augmenter de 250 ml",
+    "glasses": "{count, plural, one {# verre} other {# verres}}"
+  },
+  "weightGoalSheet": {
+    "title": "Poids cible",
+    "description": "Nous l’utiliserons pour afficher ta progression. Tu peux laisser les champs vides.",
+    "goal": "Poids cible (kg)",
+    "start": "Poids de départ (kg)",
+    "startHint": "Vide = première mesure ({value}).",
+    "startHintEmpty": "Vide = première mesure.",
+    "error": "Saisis un poids entre {min} et {max} kg ou laisse le champ vide."
+  },
+  "legal": {
+    "back": "Retour",
+    "bindingNote": "Ceci est une traduction anglaise. Seule la version polonaise fait foi."
+  },
+  "notifications": {
+    "channelName": "Rappels",
+    "beforeEnd": {
+      "title": "Plus que 30 minutes",
+      "body": "Ton objectif de {goal} h est tout proche. Encore un peu."
+    },
+    "end": {
+      "title": "Objectif atteint",
+      "body": "Tu as jeûné {goal} h. Tu peux terminer le jeûne dans Posto."
+    },
+    "eatingWindowEnd": {
+      "title": "La fenêtre alimentaire se termine dans une heure",
+      "body": "Ton prochain jeûne commence à {time}."
+    },
+    "water": {
+      "title": "C’est l’heure de boire",
+      "body": "Bois un verre d’eau et note-le dans Posto."
+    }
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "Cette adresse n’existe pas dans Posto. Retourne au minuteur.",
+    "home": "Aller au minuteur"
+  }
+}

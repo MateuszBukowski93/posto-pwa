@@ -7,6 +7,9 @@ Bez logowania i bez backendu – wszystkie dane zostają na urządzeniu (Indexed
 
 Specyfikacja produktu: [`docs/SPEC.md`](docs/SPEC.md). Makiety (źródło prawdy dla wyglądu): [`design/`](design/).
 
+**Aplikacja mobilna (iOS i Android):** natywna wersja w React Native + Expo jest w katalogu [`mobile/`](mobile/)
+(osobny projekt z własnymi zależnościami, testami i workflow CI – zob. [`mobile/README.md`](mobile/README.md)).
+
 ## Stack
 
 - Next.js 16 (App Router, statyczny eksport `output: 'export'`), React 19, TypeScript (strict)
@@ -73,6 +76,7 @@ content/legal/       Regulamin i Polityka prywatności (pl, en) w Markdown
 scripts/             generator service workera, ikon, serwer statyczny
 e2e/                 testy Playwright
 design/              makiety referencyjne (nie są częścią buildu)
+mobile/              aplikacja React Native + Expo (osobny projekt, pomijany przez lint/typecheck/Prettier PWA)
 ```
 
 ## Placeholdery do uzupełnienia
