@@ -5,7 +5,16 @@ Bez logowania i bez backendu – wszystkie dane zostają na urządzeniu (Indexed
 
 **Wersja na żywo:** https://mateuszbukowski93.github.io/posto-pwa/
 
-Specyfikacja produktu: [`docs/SPEC.md`](docs/SPEC.md). Makiety (źródło prawdy dla wyglądu): [`design/`](design/).
+Specyfikacja produktu: [`docs/SPEC.md`](apps/pwa/docs/SPEC.md). Makiety (źródło prawdy dla wyglądu): [`design/`](apps/pwa/design/).
+
+## Struktura (monorepo, npm workspaces)
+
+| Katalog        | Opis                                                                    |
+| -------------- | ----------------------------------------------------------------------- |
+| `apps/pwa`     | aplikacja Posto (PWA)                                                   |
+| `apps/landing` | strona marketingowa (Next.js, statyczny eksport), `npm run dev:landing` |
+
+Skrypty z katalogu głównego działają na wszystkich aplikacjach; pojedynczą wybierasz przez `-w @posto/pwa` lub `-w @posto/landing`. Ścieżki `docs/`, `design/` itd. poniżej są względem `apps/pwa`.
 
 ## Stack
 

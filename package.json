@@ -1,45 +1,22 @@
 {
-  "name": "posto-pwa",
-  "version": "0.1.0",
+  "name": "posto",
   "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && node scripts/generate-sw.mjs",
-    "start": "node scripts/serve-out.mjs",
-    "lint": "eslint",
-    "typecheck": "next typegen && tsc --noEmit",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:e2e": "playwright test",
+    "dev": "npm run dev -w @posto/pwa",
+    "dev:landing": "npm run dev -w @posto/landing",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test --workspaces --if-present",
+    "test:e2e": "npm run test:e2e -w @posto/pwa",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "icons": "node scripts/generate-icons.mjs"
-  },
-  "dependencies": {
-    "@vercel/analytics": "^2.0.1",
-    "dexie": "^4.4.6",
-    "dexie-react-hooks": "^4.4.0",
-    "next": "16.3.8",
-    "next-intl": "^4.14.9",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@playwright/test": "^1.63.0",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^24.19.1",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.3.8",
-    "eslint-config-prettier": "^10.1.8",
-    "fake-indexeddb": "^6.2.5",
-    "intl-messageformat": "^11.2.15",
-    "prettier": "^3.9.9",
-    "sharp": "^0.34.5",
-    "tailwindcss": "^4",
-    "typescript": "^5",
-    "vitest": "^5.0.3"
+    "prettier": "^3.9.9"
   },
   "engines": {
     "node": ">=22"
