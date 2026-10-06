@@ -1,0 +1,264 @@
+@import 'tailwindcss';
+
+/* ---------- Tokeny (sekcja 4 specyfikacji) ---------- */
+
+:root {
+  --bg: #f2f4f1;
+  --surface: #ffffff;
+  --line: #dce2dd;
+  --track: #e3e8e4;
+  --below: #bcc6bf;
+  --off: #aeb8b1;
+  --ink: #141b18;
+  --muted: #56615b;
+  --accent: #e8673a;
+  --accent-text: #b0441c;
+  --accent-soft: #fbe4da;
+  --water: #2f7fc1;
+  --water-btn: #226ba8;
+  --water-text: #1f5f96;
+  --water-soft: #ddebf7;
+  --water-empty: #c2daee;
+  --btn: #141b18;
+  --btn-text: #ffffff;
+  --seg-on: #ffffff;
+  --overlay: rgba(8, 12, 10, 0.5);
+  --chip-shadow: 0 6px 18px rgba(20, 27, 24, 0.08);
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e1311;
+  --surface: #171e1b;
+  --line: #26302c;
+  --track: #232c28;
+  --below: #4a5650;
+  --off: #4a5650;
+  --ink: #edf1ee;
+  --muted: #9ba7a1;
+  --accent: #f0784c;
+  --accent-text: #f5916b;
+  --accent-soft: #33221a;
+  --water: #3d8fd1;
+  --water-btn: #2f7fc1;
+  --water-text: #7db8ea;
+  --water-soft: #14273a;
+  --water-empty: #1f3a52;
+  --btn: #edf1ee;
+  --btn-text: #0e1311;
+  --seg-on: #2e3934;
+  --chip-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+/* Bez JS (skrypt startowy nie ustawił data-theme) – motyw systemowy. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #0e1311;
+    --surface: #171e1b;
+    --line: #26302c;
+    --track: #232c28;
+    --below: #4a5650;
+    --off: #4a5650;
+    --ink: #edf1ee;
+    --muted: #9ba7a1;
+    --accent: #f0784c;
+    --accent-text: #f5916b;
+    --accent-soft: #33221a;
+    --water: #3d8fd1;
+    --water-btn: #2f7fc1;
+    --water-text: #7db8ea;
+    --water-soft: #14273a;
+    --water-empty: #1f3a52;
+    --btn: #edf1ee;
+    --btn-text: #0e1311;
+    --seg-on: #2e3934;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-track: var(--track);
+  --color-below: var(--below);
+  --color-off: var(--off);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-accent-soft: var(--accent-soft);
+  --color-water: var(--water);
+  --color-water-btn: var(--water-btn);
+  --color-water-text: var(--water-text);
+  --color-water-soft: var(--water-soft);
+  --color-water-empty: var(--water-empty);
+  --color-btn: var(--btn);
+  --color-btn-text: var(--btn-text);
+  --color-seg-on: var(--seg-on);
+  --font-sans: var(--font-manrope), 'Segoe UI', system-ui, sans-serif;
+  --font-display: var(--font-bricolage), 'Segoe UI', system-ui, sans-serif;
+  --ease-posto: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* ---------- Baza ---------- */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Treść w innym języku niż PL czeka na komunikaty (zob. lib/bootScript.ts). */
+html[data-i18n-pending] body {
+  visibility: hidden;
+}
+
+button,
+[role='button'],
+a {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 2px;
+}
+
+input[type='time']::-webkit-date-and-time-value {
+  text-align: center;
+}
+
+/* ---------- Animacje (wyłączone przy prefers-reduced-motion) ---------- */
+
+@keyframes posto-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes posto-hero {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes posto-arc {
+  from {
+    stroke-dashoffset: 540.35;
+  }
+  to {
+    stroke-dashoffset: 151.3;
+  }
+}
+
+@keyframes posto-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes posto-float-up {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes posto-float-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes posto-sheet {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes posto-pulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  35% {
+    transform: scale(1.035);
+    filter: drop-shadow(0 0 14px var(--accent));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim-logo {
+    animation: posto-fade 500ms var(--ease-posto) backwards;
+  }
+  .anim-hero {
+    animation: posto-hero 700ms var(--ease-posto) 100ms backwards;
+  }
+  .anim-arc {
+    animation: posto-arc 1400ms var(--ease-posto) 350ms backwards;
+  }
+  .anim-rise-1 {
+    animation: posto-rise 600ms var(--ease-posto) 450ms backwards;
+  }
+  .anim-rise-2 {
+    animation: posto-rise 600ms var(--ease-posto) 600ms backwards;
+  }
+  .anim-rise-3 {
+    animation: posto-rise 600ms var(--ease-posto) 750ms backwards;
+  }
+  .anim-float-up {
+    animation: posto-float-up 4200ms ease-in-out 1200ms infinite;
+  }
+  .anim-float-down {
+    animation: posto-float-down 3800ms ease-in-out 1500ms infinite;
+  }
+  .anim-sheet {
+    animation: posto-sheet 280ms var(--ease-posto);
+  }
+  .anim-overlay {
+    animation: posto-fade 200ms ease-out;
+  }
+  .anim-goal-pulse {
+    transform-origin: center;
+    animation: posto-pulse 1400ms var(--ease-posto) 1;
+  }
+}

@@ -1,0 +1,10 @@
+.next
+out
+node_modules
+design
+docs
+content
+playwright-report
+test-results
+package-lock.json
+public/sw.js

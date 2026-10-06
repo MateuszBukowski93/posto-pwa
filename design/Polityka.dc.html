@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Posto – polityka prywatności</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 3900px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px; padding: 16px 20px 48px; background: {{t.bg}}; color: {{t.ink}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.55">
+  <header style="display: flex; align-items: center; min-height: 48px; margin-left: -10px">
+    <a href="{{back}}" aria-label="Wróć" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 14px; color: {{t.ink}}">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+    </a>
+  </header>
+
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <h1 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 32px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1">Polityka prywatności</h1>
+    <span style="font-size: 13px; color: {{t.muted}}">Obowiązuje od [DATA]</span>
+  </div>
+
+  <section aria-label="W skrócie" style="display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 18px; background: {{t.accentSoft}}">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">W skrócie</h2>
+    <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px">
+      <li>Posto działa bez konta i logowania.</li>
+      <li>Twoje posty, waga i woda zostają na Twoim telefonie. Nie wysyłamy ich na żaden serwer i nie mamy do nich dostępu.</li>
+      <li>Zbieramy tylko anonimowe statystyki odwiedzin, bez plików cookies.</li>
+      <li>Nie sprzedajemy danych i nie wyświetlamy reklam.</li>
+    </ul>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">1. Administrator danych</h2>
+    <p style="margin: 0">Administratorem danych osobowych jest [NAZWA FIRMY], działająca pod marką DeveloArt, [ADRES], NIP [NIP]. W sprawach prywatności napisz do nas: [E-MAIL].</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">2. Dane, które zostają na Twoim urządzeniu</h2>
+    <p style="margin: 0">Wszystko, co wpisujesz w Posto, jest zapisywane wyłącznie w pamięci przeglądarki na Twoim urządzeniu. Dotyczy to m.in.:</p>
+    <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px">
+      <li>godzin rozpoczęcia i zakończenia postów oraz wybranego protokołu,</li>
+      <li>pomiarów wagi i ilości wypitej wody,</li>
+      <li>ustawień, takich jak język, motyw i powiadomienia.</li>
+    </ul>
+    <p style="margin: 0">Te dane nie są przesyłane do nas ani do nikogo innego. Nie mamy do nich dostępu, dlatego nie możemy ich odczytać, odzyskać ani przenieść na inne urządzenie.</p>
+    <p style="margin: 0">Możesz je usunąć w każdej chwili w Ustawieniach (Usuń wszystkie dane), czyszcząc dane strony w przeglądarce lub odinstalowując aplikację. Usunięcia nie da się cofnąć.</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">3. Statystyki odwiedzin</h2>
+    <p style="margin: 0">Aby wiedzieć, jak rozwijać Posto, korzystamy z narzędzia [NAZWA NARZĘDZIA, np. Vercel Web Analytics]. Działa ono bez plików cookies i pokazuje nam tylko zbiorcze statystyki, takie jak liczba odwiedzin, odwiedzane ekrany, źródło wejścia, kraj, typ urządzenia i przeglądarka. Nie pozwala nam zidentyfikować konkretnej osoby.</p>
+    <p style="margin: 0">Podstawą prawną jest nasz prawnie uzasadniony interes, czyli analiza i rozwój aplikacji (art. 6 ust. 1 lit. f RODO). Dane statystyczne przechowujemy przez [OKRES].</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">4. Hosting i logi serwera</h2>
+    <p style="margin: 0">Posto jest udostępniane z serwerów [NAZWA HOSTINGU, np. Vercel Inc.]. Przy każdym wejściu do aplikacji serwer automatycznie zapisuje dane techniczne: adres IP, datę i godzinę, adres strony oraz informacje o przeglądarce i systemie.</p>
+    <p style="margin: 0">Te dane są potrzebne, aby dostarczyć aplikację i chronić ją przed nadużyciami (art. 6 ust. 1 lit. f RODO). Są przechowywane przez [OKRES], zgodnie z zasadami dostawcy hostingu.</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">5. Powiadomienia</h2>
+    <p style="margin: 0">Powiadomienia włączasz sam w Ustawieniach, po wyrażeniu zgody w przeglądarce. Możesz je wyłączyć w każdej chwili w aplikacji lub w ustawieniach telefonu.</p>
+    <p style="margin: 0; padding: 10px 12px; border-radius: 12px; border: 1.5px dashed {{t.muted}}; color: {{t.muted}}; font-size: 13px">[DO UZUPEŁNIENIA: jeśli powiadomienia będą wysyłane z serwera (Web Push), opisz tu przechowywanie identyfikatora subskrypcji i godzin powiadomień, cel, podstawę prawną i okres przechowywania.]</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">6. Kontakt z nami</h2>
+    <p style="margin: 0">Jeśli napiszesz do nas, przetwarzamy Twój adres e-mail i treść wiadomości, aby odpowiedzieć (art. 6 ust. 1 lit. f RODO). Przechowujemy je przez czas potrzebny do załatwienia sprawy, a następnie przez okres przedawnienia ewentualnych roszczeń.</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">7. Wsparcie przez Buy Me a Coffee</h2>
+    <p style="margin: 0">Jeśli zdecydujesz się wesprzeć Posto, płatność obsługuje serwis Buy Me a Coffee jako odrębny administrator danych, na zasadach swojej polityki prywatności. Od serwisu możemy otrzymać informacje, które sam w nim podasz, np. imię lub pseudonim i wiadomość.</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">8. Przekazywanie danych poza EOG</h2>
+    <p style="margin: 0">Nasi dostawcy (hosting, statystyki) mogą przetwarzać dane techniczne poza Europejskim Obszarem Gospodarczym, np. w USA. Odbywa się to na podstawie decyzji Komisji Europejskiej o odpowiednim stopniu ochrony (EU-US Data Privacy Framework) lub standardowych klauzul umownych.</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">9. Pliki cookies i pamięć przeglądarki</h2>
+    <p style="margin: 0">Posto nie używa plików cookies. Korzysta z pamięci przeglądarki (np. IndexedDB) wyłącznie po to, by zapisać Twoje dane na Twoim urządzeniu. Bez tego aplikacja nie mogłaby działać.</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">10. Twoje prawa</h2>
+    <p style="margin: 0">W zakresie danych, które przetwarzamy, masz prawo do:</p>
+    <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px">
+      <li>dostępu do danych i otrzymania ich kopii,</li>
+      <li>sprostowania i usunięcia danych,</li>
+      <li>ograniczenia przetwarzania,</li>
+      <li>wniesienia sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym interesie,</li>
+      <li>wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa).</li>
+    </ul>
+    <p style="margin: 0">Statystyki są anonimowe, więc zwykle nie jesteśmy w stanie przypisać ich do Ciebie. Danych zapisanych na Twoim urządzeniu nie widzimy. Zarządzasz nimi sam.</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 8px">
+    <h2 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.02em">11. Zmiany polityki</h2>
+    <p style="margin: 0">Jeśli zmienimy sposób działania Posto lub przepisy się zmienią, zaktualizujemy tę politykę i poinformujemy o tym w aplikacji. Aktualna wersja obowiązuje od [DATA].</p>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Motyw"},"$preview":{"width":390,"height":3900}}'>
+class Component extends DCLogic {
+  theme(dark) {
+    return dark
+      ? { bg: '#0E1311', ink: '#EDF1EE', muted: '#9BA7A1', accentSoft: '#33221A' }
+      : { bg: '#F2F4F1', ink: '#141B18', muted: '#56615B', accentSoft: '#FBE4DA' };
+  }
+  renderVals() {
+    const dark = !!this.props.dark;
+    return {
+      t: this.theme(dark),
+      back: dark ? 'PowitanieDark.dc.html' : 'Powitanie.dc.html'
+    };
+  }
+}
+</script>
+</body>
+</html>

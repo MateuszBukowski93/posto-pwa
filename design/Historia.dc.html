@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Posto – historia postów</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; display: flex; flex-direction: column; background: {{t.bg}}; color: {{t.ink}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; overflow: hidden">
+  <main style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 14px; padding: 16px 20px 16px; box-sizing: border-box">
+    <header style="display: flex; align-items: center; min-height: 48px">
+      <h1 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.03em; line-height: 1">Historia</h1>
+    </header>
+
+    <section aria-label="Seria" style="display: flex; align-items: center; gap: 16px; padding: 16px 18px; border-radius: 20px; background: {{t.accentSoft}}">
+      <span style="font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 56px; font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: {{t.accentText}}; font-variant-numeric: tabular-nums">12</span>
+      <div style="display: flex; flex-direction: column; gap: 3px">
+        <span style="font-size: 17px; font-weight: 700">dni z rzędu</span>
+        <span style="font-size: 13px; color: {{t.muted}}">Najdłuższa seria: 21 dni</span>
+      </div>
+    </section>
+
+    <section aria-label="Ten tydzień" style="display: flex; flex-direction: column; gap: 12px; padding: 14px 16px 12px; border-radius: 20px; background: {{t.surface}}; border: 1px solid {{t.line}}">
+      <div style="display: flex; align-items: baseline; justify-content: space-between">
+        <span style="font-size: 16px; font-weight: 700">Ten tydzień</span>
+        <span style="font-size: 12px; color: {{t.muted}}">cel 16 h</span>
+      </div>
+      <div style="position: relative; height: 120px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; align-items: end">
+        <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 80px; border-top: 1.5px dashed {{t.muted}}; opacity: 0.6"></div>
+        <sc-for list="{{week}}" as="d" hint-placeholder-count="7">
+          <div style="height: {{d.px}}px; border-radius: 8px 8px 4px 4px; background: {{d.bg}}"></div>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px">
+        <sc-for list="{{week}}" as="d" hint-placeholder-count="7">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 1px">
+            <span style="font-size: 12px; font-weight: 700">{{d.day}}</span>
+            <span style="font-size: 11px; color: {{t.muted}}; font-variant-numeric: tabular-nums">{{d.val}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-label="Statystyki" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+      <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 12px; border-radius: 16px; background: {{t.surface}}; border: 1px solid {{t.line}}">
+        <span style="font-size: 12px; color: {{t.muted}}">Średnio</span>
+        <span style="font-size: 17px; font-weight: 700">16,3 h</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 12px; border-radius: 16px; background: {{t.surface}}; border: 1px solid {{t.line}}">
+        <span style="font-size: 12px; color: {{t.muted}}">Najdłuższy</span>
+        <span style="font-size: 17px; font-weight: 700">20 h 15 m</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 12px; border-radius: 16px; background: {{t.surface}}; border: 1px solid {{t.line}}">
+        <span style="font-size: 12px; color: {{t.muted}}">Ukończone</span>
+        <span style="font-size: 17px; font-weight: 700">24 / 28</span>
+      </div>
+    </section>
+
+    <section aria-label="Ostatnie posty" style="display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 13px; font-weight: 700; color: {{t.muted}}; letter-spacing: 0.04em; text-transform: uppercase">Ostatnie posty</span>
+      <div style="display: flex; flex-direction: column; border-radius: 18px; background: {{t.surface}}; border: 1px solid {{t.line}}; overflow: hidden">
+        <sc-for list="{{recent}}" as="r" hint-placeholder-count="3">
+          <div style="display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 16px; border-top: 1px solid {{r.divider}}">
+            <span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: {{r.iconBg}}; color: {{r.iconColor}}; flex: 0 0 auto">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="{{r.icon}}"></path></svg>
+            </span>
+            <div style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span style="font-size: 14px; font-weight: 700">{{r.date}}</span>
+              <span style="font-size: 12px; color: {{t.muted}}">{{r.range}}</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px">
+              <span style="font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums">{{r.dur}}</span>
+              <span style="font-size: 12px; color: {{t.muted}}">{{r.status}}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+
+  <nav aria-label="Nawigacja główna" style="flex: 0 0 auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px 8px 18px; background: {{t.surface}}; border-top: 1px solid {{t.line}}">
+    <a href="{{nav.timer}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.muted}}; text-decoration: none; font-size: 11px; font-weight: 600">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"></circle><path d="M12 10v3.5l2.5 2M9.5 3h5"></path></svg>
+      <span>Timer</span>
+    </a>
+    <a href="{{nav.historia}}" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.accentText}}; text-decoration: none; font-size: 11px; font-weight: 700">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg>
+      <span>Historia</span>
+    </a>
+    <a href="{{nav.pomiary}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.muted}}; text-decoration: none; font-size: 11px; font-weight: 600">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5h16M5.5 15l4-5 3.5 3 5.5-7"></path></svg>
+      <span>Pomiary</span>
+    </a>
+    <a href="{{nav.ustawienia}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.muted}}; text-decoration: none; font-size: 11px; font-weight: 600">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9M18 7h2M4 17h2M11 17h9"></path><circle cx="15.5" cy="7" r="2.5"></circle><circle cx="8.5" cy="17" r="2.5"></circle></svg>
+      <span>Ustawienia</span>
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Motyw"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  theme(dark) {
+    return dark
+      ? { bg: '#0E1311', surface: '#171E1B', line: '#26302C', track: '#232C28', below: '#4A5650', ink: '#EDF1EE', muted: '#9BA7A1', accent: '#F0784C', accentText: '#F5916B', accentSoft: '#33221A', water: '#3D8FD1', waterText: '#7DB8EA', waterSoft: '#14273A', btn: '#EDF1EE', btnText: '#0E1311' }
+      : { bg: '#F2F4F1', surface: '#FFFFFF', line: '#DCE2DD', track: '#E3E8E4', below: '#BCC6BF', ink: '#141B18', muted: '#56615B', accent: '#E8673A', accentText: '#B0441C', accentSoft: '#FBE4DA', water: '#2F7FC1', waterText: '#1F5F96', waterSoft: '#DDEBF7', btn: '#141B18', btnText: '#FFFFFF' };
+  }
+  renderVals() {
+    const dark = !!this.props.dark;
+    const t = this.theme(dark);
+    const s = dark ? 'Dark' : '';
+    const data = [
+      { day: 'Pn', h: 16.2 }, { day: 'Wt', h: 17.0 }, { day: 'Śr', h: 15.1 }, { day: 'Cz', h: 16.5 },
+      { day: 'Pt', h: 18.3 }, { day: 'So', h: 16.0 }, { day: 'Nd', h: 14.5, today: true }
+    ];
+    const week = data.map((d) => ({
+      day: d.day,
+      val: String(d.h).replace('.', ','),
+      px: Math.round((d.h / 24) * 120),
+      bg: d.today ? t.accentSoft : d.h >= 16 ? t.accent : t.below
+    }));
+    const check = 'M5 12.5l4.5 4.5L19 7.5';
+    const minus = 'M6 12h12';
+    const recent = [
+      { date: 'Sobota, 3 paź', range: '20:00 → 12:02', dur: '16 h 02 min', ok: true },
+      { date: 'Piątek, 2 paź', range: '19:30 → 13:48', dur: '18 h 18 min', ok: true },
+      { date: 'Środa, 30 wrz', range: '21:00 → 12:06', dur: '15 h 06 min', ok: false }
+    ].map((r, i) => ({
+      ...r,
+      status: r.ok ? 'Cel osiągnięty' : 'Poniżej celu',
+      icon: r.ok ? check : minus,
+      iconBg: r.ok ? t.accentSoft : t.track,
+      iconColor: r.ok ? t.accentText : t.muted,
+      divider: i === 0 ? 'transparent' : t.line
+    }));
+    return {
+      t,
+      week,
+      recent,
+      nav: {
+        timer: dark ? 'TimerDark.dc.html' : 'Main.dc.html',
+        historia: 'Historia' + s + '.dc.html',
+        pomiary: 'Pomiary' + s + '.dc.html',
+        ustawienia: 'Ustawienia' + s + '.dc.html'
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

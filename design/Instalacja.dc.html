@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Posto – jak zainstalować</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; padding: 16px 20px 24px; background: {{t.bg}}; color: {{t.ink}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; overflow: hidden">
+  <header style="display: flex; align-items: center; gap: 8px; min-height: 48px; margin-left: -10px">
+    <a href="{{back}}" aria-label="Wróć do ekranu powitalnego" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 14px; color: {{t.ink}}">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+    </a>
+  </header>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <h1 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1">Zainstaluj Posto</h1>
+    <p style="margin: 0; font-size: 14px; color: {{t.muted}}; line-height: 1.45">Posto to aplikacja PWA. Instalujesz ją prosto z przeglądarki, bez sklepu z aplikacjami. Potem uruchamiasz ją z ekranu głównego jak każdą inną.</p>
+  </div>
+
+  <div role="tablist" aria-label="Twój telefon" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 16px; background: {{t.track}}">
+    <sc-for list="{{tabs}}" as="tb" hint-placeholder-count="2">
+      <button type="button" role="tab" aria-selected="{{tb.selected}}" onClick="{{tb.pick}}" style="min-height: 44px; border-radius: 12px; border: none; background: {{tb.bg}}; color: {{tb.color}}; box-shadow: {{tb.shadow}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer">{{tb.label}}</button>
+    </sc-for>
+  </div>
+
+  <ol role="tabpanel" style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+    <sc-for list="{{steps}}" as="st" hint-placeholder-count="4">
+      <li style="display: flex; gap: 14px; padding: 14px 16px; border-radius: 18px; background: {{t.surface}}; border: 1px solid {{t.line}}">
+        <span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 50%; background: {{t.ink}}; color: {{t.bg}}; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex: 0 0 auto">{{st.n}}</span>
+        <span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px; min-width: 0">
+          <span style="font-size: 15px; font-weight: 700">{{st.title}}</span>
+          <span style="font-size: 13px; color: {{t.muted}}; line-height: 1.4">{{st.desc}}</span>
+        </span>
+        <span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 12px; background: {{t.accentSoft}}; color: {{t.accentText}}; display: flex; align-items: center; justify-content: center; flex: 0 0 auto">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="{{st.icon}}"></path></svg>
+        </span>
+      </li>
+    </sc-for>
+  </ol>
+
+  <div style="display: flex; gap: 12px; padding: 12px 14px; border-radius: 16px; background: {{t.waterSoft}}">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{t.waterText}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto; margin-top: 1px"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 11v5M12 8h.01"></path></svg>
+    <span style="font-size: 13px; line-height: 1.45">{{tip}}</span>
+  </div>
+
+  <div style="flex: 1 1 auto"></div>
+
+  <a href="{{back}}" style="display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 18px; background: {{t.btn}}; color: {{t.btnText}}; text-decoration: none; font-size: 16px; font-weight: 700">Rozumiem</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Motyw"},"platform":{"editor":"enum","options":["iphone","android"],"default":"iphone","section":"Stan"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { platform: props.platform || 'iphone' };
+  }
+  theme(dark) {
+    return dark
+      ? { bg: '#0E1311', surface: '#171E1B', line: '#26302C', track: '#232C28', ink: '#EDF1EE', muted: '#9BA7A1', accent: '#F0784C', accentText: '#F5916B', accentSoft: '#33221A', waterText: '#7DB8EA', waterSoft: '#14273A', segOn: '#2E3934', btn: '#EDF1EE', btnText: '#0E1311' }
+      : { bg: '#F2F4F1', surface: '#FFFFFF', line: '#DCE2DD', track: '#E3E8E4', ink: '#141B18', muted: '#56615B', accent: '#E8673A', accentText: '#B0441C', accentSoft: '#FBE4DA', waterText: '#1F5F96', waterSoft: '#DDEBF7', segOn: '#FFFFFF', btn: '#141B18', btnText: '#FFFFFF' };
+  }
+  renderVals() {
+    const dark = !!this.props.dark;
+    const t = this.theme(dark);
+    const p = this.state.platform;
+    const icons = {
+      globe: 'M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM3.5 12h17M12 3.5c2.4 2.4 3.5 5.2 3.5 8.5s-1.1 6.1-3.5 8.5c-2.4-2.4-3.5-5.2-3.5-8.5s1.1-6.1 3.5-8.5z',
+      share: 'M12 3.5v11M8 7.5l4-4 4 4M7 11H5.5v9.5h13V11H17',
+      plus: 'M5.5 3.5h13a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2zM12 8v8M8 12h8',
+      check: 'M5 12.5l4.5 4.5L19 7.5',
+      dots: 'M12 5.5h.01M12 12h.01M12 18.5h.01',
+      download: 'M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19.5h14'
+    };
+    const iphone = [
+      { title: 'Otwórz Posto w Safari', desc: 'Wejdź na [ADRES APLIKACJI]. Na nowszych iPhone’ach działa to też w Chrome.', icon: icons.globe },
+      { title: 'Stuknij „Udostępnij”', desc: 'Kwadrat ze strzałką w górę, na dolnym lub górnym pasku.', icon: icons.share },
+      { title: 'Wybierz „Do ekranu początkowego”', desc: 'Nie widzisz tej opcji? Przewiń listę w dół.', icon: icons.plus },
+      { title: 'Stuknij „Dodaj”', desc: 'Ikona Posto pojawi się na ekranie głównym.', icon: icons.check }
+    ];
+    const android = [
+      { title: 'Otwórz Posto w Chrome', desc: 'Wejdź na [ADRES APLIKACJI].', icon: icons.globe },
+      { title: 'Stuknij menu ⋮', desc: 'Trzy kropki w prawym górnym rogu.', icon: icons.dots },
+      { title: 'Wybierz „Zainstaluj aplikację”', desc: 'W niektórych wersjach: „Dodaj do ekranu głównego”.', icon: icons.download },
+      { title: 'Potwierdź „Zainstaluj”', desc: 'Ikona Posto pojawi się na ekranie głównym.', icon: icons.check }
+    ];
+    const tabs = [
+      { key: 'iphone', label: 'iPhone' },
+      { key: 'android', label: 'Android' }
+    ].map((o) => {
+      const sel = o.key === p;
+      return {
+        label: o.label,
+        selected: sel ? 'true' : 'false',
+        bg: sel ? t.segOn : 'transparent',
+        color: sel ? t.ink : t.muted,
+        shadow: sel ? '0 1px 3px rgba(0,0,0,0.12)' : 'none',
+        pick: () => this.setState({ platform: o.key })
+      };
+    });
+    return {
+      t,
+      back: dark ? 'PowitanieDark.dc.html' : 'Powitanie.dc.html',
+      tabs,
+      steps: (p === 'android' ? android : iphone).map((s, i) => ({ ...s, n: i + 1 })),
+      tip: p === 'android'
+        ? 'Chrome może sam zaproponować instalację. Wtedy wystarczy stuknąć „Zainstaluj” na dole ekranu.'
+        : 'Powiadomienia o końcu postu działają na iPhonie tylko po dodaniu Posto do ekranu początkowego.'
+    };
+  }
+}
+</script>
+</body>
+</html>

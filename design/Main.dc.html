@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Posto – timer postu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; display: flex; flex-direction: column; background: {{t.bg}}; color: {{t.ink}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; overflow: hidden">
+  <main style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 16px; padding: 16px 20px 16px; box-sizing: border-box">
+    <header style="display: flex; align-items: center; justify-content: space-between; min-height: 48px">
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <span style="font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.03em; line-height: 1">Posto</span>
+        <span style="font-size: 13px; color: {{t.muted}}">{{today}}</span>
+      </div>
+      <a href="{{nav.protokoly}}" aria-label="Zmień protokół, obecnie 16:8" style="display: flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px 0 16px; border-radius: 999px; background: {{t.surface}}; border: 1px solid {{t.line}}; color: {{t.ink}}; text-decoration: none; font-weight: 700; font-size: 15px; box-sizing: border-box">
+        <span>16:8</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+      </a>
+    </header>
+
+    <section aria-label="Postęp postu" style="display: flex; justify-content: center; padding-top: 4px">
+      <div style="position: relative; width: 280px; height: 280px">
+        <svg width="280" height="280" viewBox="0 0 280 280" aria-hidden="true" style="position: absolute; inset: 0">
+          <circle cx="140" cy="140" r="124" fill="none" stroke="{{t.track}}" stroke-width="18"></circle>
+          <circle cx="140" cy="140" r="124" fill="none" stroke="{{ring.color}}" stroke-width="18" stroke-linecap="round" stroke-dasharray="779.11" stroke-dashoffset="{{ring.offset}}" transform="rotate(-90 140 140)"></circle>
+        </svg>
+        <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: {{ring.labelColor}}">{{ring.label}}</span>
+          <span style="font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 54px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums">{{ring.time}}</span>
+          <span style="font-size: 14px; color: {{t.muted}}">{{ring.sub}}</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Godziny" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+      <sc-if value="{{fasting}}" hint-placeholder-val="{{true}}">
+        <button type="button" onClick="{{openSheet}}" aria-label="Edytuj początek postu, obecnie {{startLabel}}" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 12px 12px 16px; border-radius: 16px; background: {{t.surface}}; border: 1px solid {{t.line}}; color: {{t.ink}}; text-align: left; cursor: pointer; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif">
+          <span style="display: flex; flex-direction: column; gap: 2px">
+            <span style="font-size: 12px; color: {{t.muted}}">Początek</span>
+            <span style="font-size: 16px; font-weight: 700">{{startLabel}}</span>
+          </span>
+          <span aria-hidden="true" style="width: 32px; height: 32px; border-radius: 10px; background: {{t.accentSoft}}; color: {{t.accentText}}; display: flex; align-items: center; justify-content: center; flex: 0 0 auto">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"></path></svg>
+          </span>
+        </button>
+      </sc-if>
+      <sc-if value="{{eating}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; border-radius: 16px; background: {{t.surface}}; border: 1px solid {{t.line}}">
+          <span style="font-size: 12px; color: {{t.muted}}">Początek</span>
+          <span style="font-size: 16px; font-weight: 700">{{startLabel}}</span>
+        </div>
+      </sc-if>
+      <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; border-radius: 16px; background: {{t.surface}}; border: 1px solid {{t.line}}">
+        <span style="font-size: 12px; color: {{t.muted}}">{{endTitle}}</span>
+        <span style="font-size: 16px; font-weight: 700">{{endLabel}}</span>
+      </div>
+    </section>
+
+    <section aria-label="Faza postu" style="display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 18px; background: {{t.surface}}; border: 1px solid {{t.line}}">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+        <span style="font-size: 16px; font-weight: 700">{{phase.name}}</span>
+        <span style="font-size: 12px; color: {{t.muted}}">{{phase.range}}</span>
+      </div>
+      <span style="font-size: 13px; color: {{t.muted}}; line-height: 1.4">{{phase.desc}}</span>
+      <div style="display: flex; gap: 4px">
+        <sc-for list="{{segments}}" as="seg" hint-placeholder-count="4">
+          <div style="flex: {{seg.flex}} 1 0; height: 6px; border-radius: 3px; background: {{seg.bg}}"></div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-label="Dzisiaj" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 10px 12px 16px; border-radius: 18px; background: {{t.waterSoft}}">
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <span style="font-size: 12px; color: {{t.waterText}}; font-weight: 700">Woda</span>
+          <span style="font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums">{{waterLabel}}</span>
+          <span style="font-size: 12px; color: {{t.muted}}">z 2,5 l</span>
+        </div>
+        <button type="button" onClick="{{addWater}}" aria-label="Dodaj 250 ml wody" style="width: 44px; height: 44px; border-radius: 14px; border: none; background: {{t.water}}; color: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer; flex: 0 0 auto">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+        </button>
+      </div>
+      <a href="{{nav.pomiary}}" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; border-radius: 18px; background: {{t.surface}}; border: 1px solid {{t.line}}; color: {{t.ink}}; text-decoration: none">
+        <span style="font-size: 12px; color: {{t.muted}}; font-weight: 700">Waga</span>
+        <span style="font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums">82,4 kg</span>
+        <span style="font-size: 12px; color: {{t.muted}}">−0,3 kg od wczoraj</span>
+      </a>
+    </section>
+
+    <div style="flex: 1 1 auto"></div>
+
+    <div style="display: flex; gap: 10px">
+      <button type="button" onClick="{{toggle}}" style="flex: 1 1 auto; min-height: 56px; border-radius: 18px; border: none; background: {{t.btn}}; color: {{t.btnText}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 700; cursor: pointer">{{ctaLabel}}</button>
+      <sc-if value="{{eating}}" hint-placeholder-val="{{false}}">
+        <button type="button" onClick="{{openSheet}}" style="flex: 0 0 auto; min-height: 56px; padding: 0 18px; border-radius: 18px; border: 1px solid {{t.line}}; background: {{t.surface}}; color: {{t.ink}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; font-size: 15px; font-weight: 700; cursor: pointer">Zacząłem wcześniej</button>
+      </sc-if>
+    </div>
+  </main>
+
+  <nav aria-label="Nawigacja główna" style="flex: 0 0 auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px 8px 18px; background: {{t.surface}}; border-top: 1px solid {{t.line}}">
+    <a href="{{nav.timer}}" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.accentText}}; text-decoration: none; font-size: 11px; font-weight: 700">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"></circle><path d="M12 10v3.5l2.5 2M9.5 3h5"></path></svg>
+      <span>Timer</span>
+    </a>
+    <a href="{{nav.historia}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.muted}}; text-decoration: none; font-size: 11px; font-weight: 600">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg>
+      <span>Historia</span>
+    </a>
+    <a href="{{nav.pomiary}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.muted}}; text-decoration: none; font-size: 11px; font-weight: 600">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5h16M5.5 15l4-5 3.5 3 5.5-7"></path></svg>
+      <span>Pomiary</span>
+    </a>
+    <a href="{{nav.ustawienia}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.muted}}; text-decoration: none; font-size: 11px; font-weight: 600">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9M18 7h2M4 17h2M11 17h9"></path><circle cx="15.5" cy="7" r="2.5"></circle><circle cx="8.5" cy="17" r="2.5"></circle></svg>
+      <span>Ustawienia</span>
+    </a>
+  </nav>
+
+  <sc-if value="{{sheet.open}}" hint-placeholder-val="{{false}}">
+    <div style="position: absolute; inset: 0; display: flex; flex-direction: column; background: rgba(8, 12, 10, 0.5)">
+      <button type="button" onClick="{{closeSheet}}" aria-label="Zamknij" style="flex: 1 1 auto; border: none; background: transparent; cursor: pointer"></button>
+      <div role="dialog" aria-modal="true" aria-labelledby="sheetTitle" style="display: flex; flex-direction: column; gap: 18px; padding: 10px 20px 28px; border-radius: 28px 28px 0 0; background: {{t.surface}}; color: {{t.ink}}">
+        <div aria-hidden="true" style="align-self: center; width: 40px; height: 5px; border-radius: 3px; background: {{t.line}}"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <h2 id="sheetTitle" style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1">Kiedy zacząłeś post?</h2>
+          <p style="margin: 0; font-size: 14px; color: {{t.muted}}; line-height: 1.45">Podaj, kiedy zjadłeś ostatni posiłek. Od tej chwili policzymy czas postu.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span id="dayLabel" style="font-size: 13px; font-weight: 700; color: {{t.muted}}">Dzień</span>
+          <div role="radiogroup" aria-labelledby="dayLabel" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+            <sc-for list="{{sheet.days}}" as="d" hint-placeholder-count="3">
+              <button type="button" role="radio" aria-checked="{{d.checked}}" onClick="{{d.pick}}" style="min-height: 60px; border-radius: 16px; border: 2px solid {{d.border}}; background: {{d.bg}}; color: {{t.ink}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; cursor: pointer; box-sizing: border-box">
+                <span style="font-size: 14px; font-weight: 700">{{d.label}}</span>
+                <span style="font-size: 12px; color: {{t.muted}}">{{d.date}}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+          <label for="startTime" style="font-size: 13px; font-weight: 700; color: {{t.muted}}">Godzina</label>
+          <input id="startTime" type="time" value="{{sheet.time}}" onChange="{{sheet.onTime}}" style="min-height: 52px; min-width: 140px; padding: 0 14px; border-radius: 14px; border: 2px solid {{t.line}}; background: {{t.bg}}; color: {{t.ink}}; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 24px; font-weight: 700; text-align: center; box-sizing: border-box">
+        </div>
+
+        <div role="status" style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; background: {{sheet.noteBg}}; color: {{sheet.noteColor}}; font-size: 14px; font-weight: 700; line-height: 1.35">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2.5 2"></path></svg>
+          <span>{{sheet.note}}</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+          <button type="button" onClick="{{closeSheet}}" style="min-height: 56px; border-radius: 18px; border: 1px solid {{t.line}}; background: transparent; color: {{t.ink}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 700; cursor: pointer">Anuluj</button>
+          <button type="button" onClick="{{saveSheet}}" aria-disabled="{{sheet.disabled}}" style="min-height: 56px; border-radius: 18px; border: none; background: {{t.btn}}; color: {{t.btnText}}; opacity: {{sheet.saveOpacity}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 700; cursor: pointer">Zapisz start</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Motyw"},"editOpen":{"editor":"boolean","default":false,"section":"Stan"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const sec = 14 * 3600 + 32 * 60 + 8;
+    const draft = this.draftFrom(sec);
+    this.state = { fasting: true, sec, water: 5, sheet: !!props.editOpen, draftDay: draft.day, draftTime: draft.time };
+  }
+  draftFrom(sec) {
+    const start = new Date(Date.now() - sec * 1000);
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const sd = new Date(start); sd.setHours(0, 0, 0, 0);
+    const off = Math.min(2, Math.max(0, Math.round((today - sd) / 86400000)));
+    return { day: off, time: this.pad(start.getHours()) + ':' + this.pad(start.getMinutes()) };
+  }
+  draftStart() {
+    const parts = (this.state.draftTime || '00:00').split(':').map(Number);
+    const d = new Date();
+    d.setDate(d.getDate() - this.state.draftDay);
+    d.setHours(parts[0] || 0, parts[1] || 0, 0, 0);
+    return d;
+  }
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState((s) => ({ sec: s.sec + 1 })), 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+  theme(dark) {
+    return dark
+      ? { bg: '#0E1311', surface: '#171E1B', line: '#26302C', track: '#232C28', ink: '#EDF1EE', muted: '#9BA7A1', accent: '#F0784C', accentText: '#F5916B', accentSoft: '#33221A', water: '#3D8FD1', waterText: '#7DB8EA', waterSoft: '#14273A', btn: '#EDF1EE', btnText: '#0E1311' }
+      : { bg: '#F2F4F1', surface: '#FFFFFF', line: '#DCE2DD', track: '#E3E8E4', ink: '#141B18', muted: '#56615B', accent: '#E8673A', accentText: '#B0441C', accentSoft: '#FBE4DA', water: '#2F7FC1', waterText: '#1F5F96', waterSoft: '#DDEBF7', btn: '#141B18', btnText: '#FFFFFF' };
+  }
+  pad(n) { return String(n).padStart(2, '0'); }
+  hhmmss(s) { return this.pad(Math.floor(s / 3600)) + ':' + this.pad(Math.floor((s % 3600) / 60)) + ':' + this.pad(s % 60); }
+  dayTime(d) {
+    const now = new Date();
+    const key = (x) => x.getFullYear() + '-' + x.getMonth() + '-' + x.getDate();
+    const y = new Date(now); y.setDate(now.getDate() - 1);
+    const tm = new Date(now); tm.setDate(now.getDate() + 1);
+    const day = key(d) === key(now) ? 'Dziś' : key(d) === key(y) ? 'Wczoraj' : key(d) === key(tm) ? 'Jutro' : d.getDate() + '.' + this.pad(d.getMonth() + 1);
+    return day + ', ' + this.pad(d.getHours()) + ':' + this.pad(d.getMinutes());
+  }
+  renderVals() {
+    const dark = !!this.props.dark;
+    const t = this.theme(dark);
+    const { fasting, sec, water } = this.state;
+    const goalH = fasting ? 16 : 8;
+    const goal = goalH * 3600;
+    const progress = Math.min(sec / goal, 1);
+    const left = goal - sec;
+    const h = sec / 3600;
+    const start = new Date(Date.now() - sec * 1000);
+    const end = new Date(start.getTime() + goal * 1000);
+    const s = dark ? 'Dark' : '';
+    const nav = {
+      timer: dark ? 'TimerDark.dc.html' : 'Main.dc.html',
+      protokoly: 'Protokoly' + s + '.dc.html',
+      historia: 'Historia' + s + '.dc.html',
+      pomiary: 'Pomiary' + s + '.dc.html',
+      ustawienia: 'Ustawienia' + s + '.dc.html'
+    };
+    const phases = [
+      { from: 0, to: 4, name: 'Trawienie', desc: 'Organizm trawi ostatni posiłek i korzysta z bieżącej energii.' },
+      { from: 4, to: 12, name: 'Stabilizacja', desc: 'Poziom insuliny spada, organizm przestawia się na zapasy.' },
+      { from: 12, to: 18, name: 'Spalanie tłuszczu', desc: 'Organizm coraz chętniej sięga po zapasy tłuszczu.' },
+      { from: 18, to: 24, name: 'Ketoza', desc: 'Rośnie produkcja ciał ketonowych.' }
+    ];
+    const current = phases.findIndex((p) => h >= p.from && h < p.to);
+    const ci = current === -1 ? phases.length - 1 : current;
+    const phase = fasting
+      ? { name: phases[ci].name, desc: phases[ci].desc, range: phases[ci].from + '–' + (ci === 3 ? '24+' : phases[ci].to) + ' h' }
+      : { name: 'Okno jedzenia', desc: 'Jedz spokojnie i pełnowartościowo. Kolejny post zacznie się o ' + this.pad(end.getHours()) + ':' + this.pad(end.getMinutes()) + '.', range: '8 h' };
+    const segments = fasting
+      ? phases.map((p, i) => ({ flex: p.to - p.from, bg: i <= ci ? t.accent : t.track }))
+      : [{ flex: 1, bg: t.water }];
+    const leftLabel = left > 0
+      ? 'zostało ' + Math.floor(left / 3600) + ' h ' + this.pad(Math.floor((left % 3600) / 60)) + ' min'
+      : 'cel osiągnięty';
+    const days = ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'];
+    const months = ['stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca', 'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia'];
+    const now = new Date();
+    const draft = this.draftStart();
+    const diff = Math.floor((now.getTime() - draft.getTime()) / 1000);
+    const valid = diff >= 0;
+    const dayNames = ['Dziś', 'Wczoraj', 'Przedwczoraj'];
+    const sheetDays = [2, 1, 0].map((off) => {
+      const d = new Date(now); d.setDate(now.getDate() - off);
+      const on = this.state.draftDay === off;
+      return {
+        label: dayNames[off],
+        date: d.getDate() + '.' + this.pad(d.getMonth() + 1),
+        checked: on ? 'true' : 'false',
+        border: on ? t.accent : t.line,
+        bg: on ? t.accentSoft : 'transparent',
+        pick: () => this.setState({ draftDay: off })
+      };
+    });
+    const sheet = {
+      open: !!this.state.sheet,
+      days: sheetDays,
+      time: this.state.draftTime,
+      onTime: (e) => this.setState({ draftTime: e.target.value }),
+      note: valid
+        ? 'Post trwa już ' + Math.floor(diff / 3600) + ' h ' + this.pad(Math.floor((diff % 3600) / 60)) + ' min' + (diff >= 16 * 3600 ? ' · cel 16 h osiągnięty' : '')
+        : 'Ta godzina jeszcze nie nadeszła. Wybierz wcześniejszą.',
+      noteBg: valid ? t.accentSoft : t.track,
+      noteColor: valid ? t.accentText : t.ink,
+      disabled: valid ? 'false' : 'true',
+      saveOpacity: valid ? 1 : 0.4
+    };
+    return {
+      t,
+      nav,
+      fasting,
+      eating: !fasting,
+      sheet,
+      openSheet: () => {
+        const d = this.draftFrom(this.state.fasting ? this.state.sec : 0);
+        this.setState({ sheet: true, draftDay: d.day, draftTime: d.time });
+      },
+      closeSheet: () => this.setState({ sheet: false }),
+      saveSheet: () => {
+        const s0 = Math.floor((Date.now() - this.draftStart().getTime()) / 1000);
+        if (s0 < 0) return;
+        this.setState({ fasting: true, sec: s0, sheet: false });
+      },
+      today: days[now.getDay()] + ', ' + now.getDate() + ' ' + months[now.getMonth()],
+      ring: {
+        color: fasting ? t.accent : t.water,
+        offset: (779.11 * (1 - progress)).toFixed(2),
+        label: fasting ? 'Poszczę' : 'Okno jedzenia',
+        labelColor: fasting ? t.accentText : t.waterText,
+        time: this.hhmmss(sec),
+        sub: 'cel ' + goalH + ' h · ' + leftLabel
+      },
+      startLabel: this.dayTime(start),
+      endTitle: fasting ? 'Cel postu' : 'Następny post',
+      endLabel: this.dayTime(end),
+      phase,
+      segments,
+      waterLabel: String(water * 0.25).replace('.', ',') + ' l',
+      addWater: () => this.setState((st) => ({ water: Math.min(st.water + 1, 20) })),
+      ctaLabel: fasting ? 'Zakończ post' : 'Rozpocznij teraz',
+      toggle: () => this.setState((st) => ({ fasting: !st.fasting, sec: 0 }))
+    };
+  }
+}
+</script>
+</body>
+</html>

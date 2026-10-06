@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Posto – ustawienia</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; display: flex; flex-direction: column; background: {{t.bg}}; color: {{t.ink}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; overflow: hidden">
+  <main style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 12px; padding: 16px 20px 16px; box-sizing: border-box">
+    <header style="display: flex; align-items: center; min-height: 48px">
+      <h1 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.03em; line-height: 1">Ustawienia</h1>
+    </header>
+
+    <section aria-labelledby="hdrNotif" style="display: flex; flex-direction: column; gap: 6px">
+      <h2 id="hdrNotif" style="margin: 0; font-size: 13px; font-weight: 700; color: {{t.muted}}; letter-spacing: 0.04em; text-transform: uppercase">Powiadomienia</h2>
+      <div style="display: flex; flex-direction: column; border-radius: 18px; background: {{t.surface}}; border: 1px solid {{t.line}}; overflow: hidden">
+        <sc-for list="{{notifs}}" as="n" hint-placeholder-count="4">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; padding: 0 12px 0 16px; border-top: 1px solid {{n.divider}}">
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+              <span id="{{n.id}}" style="font-size: 14px; font-weight: 700">{{n.title}}</span>
+              <span style="font-size: 12px; color: {{t.muted}}">{{n.sub}}</span>
+            </div>
+            <button type="button" role="switch" aria-checked="{{n.checked}}" aria-labelledby="{{n.id}}" onClick="{{n.toggle}}" style="width: 52px; height: 44px; padding: 0; border: none; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; flex: 0 0 auto">
+              <span style="width: 48px; height: 28px; border-radius: 999px; background: {{n.trackBg}}; display: flex; align-items: center; justify-content: {{n.justify}}; padding: 3px; box-sizing: border-box">
+                <span style="width: 22px; height: 22px; border-radius: 50%; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.25)"></span>
+              </span>
+            </button>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="hdrLook" style="display: flex; flex-direction: column; gap: 6px">
+      <h2 id="hdrLook" style="margin: 0; font-size: 13px; font-weight: 700; color: {{t.muted}}; letter-spacing: 0.04em; text-transform: uppercase">Wygląd i język</h2>
+      <div role="radiogroup" aria-label="Motyw" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 16px; background: {{t.track}}">
+        <sc-for list="{{themes}}" as="o" hint-placeholder-count="3">
+          <button type="button" role="radio" aria-checked="{{o.checked}}" onClick="{{o.pick}}" style="min-height: 44px; border-radius: 12px; border: none; background: {{o.bg}}; color: {{o.color}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: {{o.shadow}}">{{o.label}}</button>
+        </sc-for>
+      </div>
+      <button type="button" onClick="{{openLang}}" aria-haspopup="dialog" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; margin-top: 2px; padding: 0 12px 0 16px; border-radius: 16px; background: {{t.surface}}; border: 1px solid {{t.line}}; color: {{t.ink}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; text-align: left; cursor: pointer">
+        <span style="display: flex; align-items: center; gap: 10px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M3.5 12h17M12 3.5c2.4 2.4 3.5 5.2 3.5 8.5s-1.1 6.1-3.5 8.5c-2.4-2.4-3.5-5.2-3.5-8.5s1.1-6.1 3.5-8.5z"></path></svg>
+          <span style="font-size: 14px; font-weight: 600">Język aplikacji</span>
+        </span>
+        <span style="display: flex; align-items: center; gap: 4px; font-size: 14px; color: {{t.muted}}">{{currentLang}} <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span>
+      </button>
+    </section>
+
+    <section aria-labelledby="hdrGoals" style="display: flex; flex-direction: column; gap: 6px">
+      <h2 id="hdrGoals" style="margin: 0; font-size: 13px; font-weight: 700; color: {{t.muted}}; letter-spacing: 0.04em; text-transform: uppercase">Cele</h2>
+      <div style="display: flex; flex-direction: column; border-radius: 18px; background: {{t.surface}}; border: 1px solid {{t.line}}; overflow: hidden">
+        <a href="{{nav.protokoly}}" style="display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 0 12px 0 16px; color: {{t.ink}}; text-decoration: none">
+          <span style="font-size: 14px; font-weight: 600">Protokół postu</span>
+          <span style="display: flex; align-items: center; gap: 4px; font-size: 14px; color: {{t.muted}}">16:8 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span>
+        </a>
+        <a href="#" style="display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 0 12px 0 16px; border-top: 1px solid {{t.line}}; color: {{t.ink}}; text-decoration: none">
+          <span style="font-size: 14px; font-weight: 600">Dzienny cel wody</span>
+          <span style="display: flex; align-items: center; gap: 4px; font-size: 14px; color: {{t.muted}}">2,5 l <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span>
+        </a>
+        <a href="#" style="display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 0 12px 0 16px; border-top: 1px solid {{t.line}}; color: {{t.ink}}; text-decoration: none">
+          <span style="font-size: 14px; font-weight: 600">Docelowa waga</span>
+          <span style="display: flex; align-items: center; gap: 4px; font-size: 14px; color: {{t.muted}}">78 kg <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <section aria-label="Instalacja aplikacji" style="display: flex; align-items: center; gap: 14px; padding: 14px 14px 14px 16px; border-radius: 18px; background: {{t.accentSoft}}">
+      <span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 12px; background: {{t.accent}}; color: #ffffff; display: flex; align-items: center; justify-content: center; flex: 0 0 auto">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19.5h14"></path></svg>
+      </span>
+      <div style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 1px; min-width: 0">
+        <span style="font-size: 14px; font-weight: 700">Zainstaluj Posto</span>
+        <span style="font-size: 12px; color: {{t.muted}}; line-height: 1.35">Szybki dostęp z ekranu głównego.</span>
+      </div>
+      <button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 14px; border: none; background: {{t.btn}}; color: {{t.btnText}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; flex: 0 0 auto">Zainstaluj</button>
+    </section>
+  </main>
+
+  <nav aria-label="Nawigacja główna" style="flex: 0 0 auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px 8px 18px; background: {{t.surface}}; border-top: 1px solid {{t.line}}">
+    <a href="{{nav.timer}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.muted}}; text-decoration: none; font-size: 11px; font-weight: 600">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"></circle><path d="M12 10v3.5l2.5 2M9.5 3h5"></path></svg>
+      <span>Timer</span>
+    </a>
+    <a href="{{nav.historia}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.muted}}; text-decoration: none; font-size: 11px; font-weight: 600">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg>
+      <span>Historia</span>
+    </a>
+    <a href="{{nav.pomiary}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.muted}}; text-decoration: none; font-size: 11px; font-weight: 600">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5h16M5.5 15l4-5 3.5 3 5.5-7"></path></svg>
+      <span>Pomiary</span>
+    </a>
+    <a href="{{nav.ustawienia}}" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; color: {{t.accentText}}; text-decoration: none; font-size: 11px; font-weight: 700">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9M18 7h2M4 17h2M11 17h9"></path><circle cx="15.5" cy="7" r="2.5"></circle><circle cx="8.5" cy="17" r="2.5"></circle></svg>
+      <span>Ustawienia</span>
+    </a>
+  </nav>
+
+  <sc-if value="{{langSheet}}" hint-placeholder-val="{{false}}">
+    <div style="position: absolute; inset: 0; display: flex; flex-direction: column; background: rgba(8, 12, 10, 0.5)">
+      <button type="button" onClick="{{closeLang}}" aria-label="Zamknij" style="flex: 1 1 auto; border: none; background: transparent; cursor: pointer"></button>
+      <div role="dialog" aria-modal="true" aria-labelledby="langTitle" style="display: flex; flex-direction: column; gap: 14px; padding: 10px 20px 28px; border-radius: 28px 28px 0 0; background: {{t.surface}}; color: {{t.ink}}">
+        <div aria-hidden="true" style="align-self: center; width: 40px; height: 5px; border-radius: 3px; background: {{t.line}}"></div>
+        <h2 id="langTitle" style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1">Język aplikacji</h2>
+        <div role="radiogroup" aria-labelledby="langTitle" style="display: flex; flex-direction: column; border-radius: 18px; border: 1px solid {{t.line}}; overflow: hidden">
+          <sc-for list="{{langs}}" as="l" hint-placeholder-count="9">
+            <button type="button" role="radio" aria-checked="{{l.checked}}" onClick="{{l.pick}}" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; padding: 0 16px; border: none; border-top: 1px solid {{l.divider}}; background: {{l.bg}}; color: {{t.ink}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; text-align: left; cursor: pointer">
+              <span style="display: flex; flex-direction: column; gap: 1px">
+                <span lang="{{l.code}}" style="font-size: 15px; font-weight: 700">{{l.native}}</span>
+                <span style="font-size: 12px; color: {{t.muted}}">{{l.sub}}</span>
+              </span>
+              <span aria-hidden="true" style="width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: {{l.markBg}}; color: #ffffff; flex: 0 0 auto">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="{{l.mark}}"></path></svg>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Motyw"},"langOpen":{"editor":"boolean","default":false,"section":"Stan"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { on: { before: true, end: true, window: false, water: true }, choice: null, lang: 'pl', langSheet: !!props.langOpen };
+  }
+  theme(dark) {
+    return dark
+      ? { bg: '#0E1311', surface: '#171E1B', line: '#26302C', track: '#232C28', off: '#4A5650', ink: '#EDF1EE', muted: '#9BA7A1', accent: '#F0784C', accentText: '#F5916B', accentSoft: '#33221A', segOn: '#2E3934', btn: '#EDF1EE', btnText: '#0E1311' }
+      : { bg: '#F2F4F1', surface: '#FFFFFF', line: '#DCE2DD', track: '#E3E8E4', off: '#AEB8B1', ink: '#141B18', muted: '#56615B', accent: '#E8673A', accentText: '#B0441C', accentSoft: '#FBE4DA', segOn: '#FFFFFF', btn: '#141B18', btnText: '#FFFFFF' };
+  }
+  renderVals() {
+    const propDark = !!this.props.dark;
+    const choice = this.state.choice || (propDark ? 'dark' : 'light');
+    const dark = choice === 'system' ? propDark : choice === 'dark';
+    const t = this.theme(dark);
+    const s = propDark ? 'Dark' : '';
+    const defs = [
+      { key: 'before', title: 'Przed końcem postu', sub: '30 min wcześniej' },
+      { key: 'end', title: 'Koniec postu', sub: 'Gdy osiągniesz cel' },
+      { key: 'window', title: 'Koniec okna jedzenia', sub: '1 h przed startem postu' },
+      { key: 'water', title: 'Picie wody', sub: 'Co 2 h, od 8:00 do 20:00' }
+    ];
+    const notifs = defs.map((d, i) => {
+      const on = !!this.state.on[d.key];
+      return {
+        id: 'n-' + d.key,
+        title: d.title,
+        sub: d.sub,
+        checked: on ? 'true' : 'false',
+        trackBg: on ? t.accent : t.off,
+        justify: on ? 'flex-end' : 'flex-start',
+        divider: i === 0 ? 'transparent' : t.line,
+        toggle: () => this.setState((st) => ({ on: { ...st.on, [d.key]: !st.on[d.key] } }))
+      };
+    });
+    const themes = [
+      { key: 'light', label: 'Jasny' },
+      { key: 'dark', label: 'Ciemny' },
+      { key: 'system', label: 'Systemowy' }
+    ].map((o) => {
+      const sel = o.key === choice;
+      return {
+        label: o.label,
+        checked: sel ? 'true' : 'false',
+        bg: sel ? t.segOn : 'transparent',
+        color: sel ? t.ink : t.muted,
+        shadow: sel ? '0 1px 3px rgba(0,0,0,0.12)' : 'none',
+        pick: () => this.setState({ choice: o.key })
+      };
+    });
+    const langDefs = [
+      { code: 'system', native: 'Jak w telefonie', sub: 'Teraz: polski' },
+      { code: 'pl', native: 'Polski', sub: 'polski' },
+      { code: 'en', native: 'English', sub: 'angielski' },
+      { code: 'de', native: 'Deutsch', sub: 'niemiecki' },
+      { code: 'es', native: 'Español', sub: 'hiszpański' },
+      { code: 'fr', native: 'Français', sub: 'francuski' },
+      { code: 'it', native: 'Italiano', sub: 'włoski' },
+      { code: 'pt', native: 'Português', sub: 'portugalski' },
+      { code: 'uk', native: 'Українська', sub: 'ukraiński' }
+    ];
+    const langs = langDefs.map((l, i) => {
+      const sel = l.code === this.state.lang;
+      return {
+        code: l.code === 'system' ? 'pl' : l.code,
+        native: l.native,
+        sub: l.sub,
+        checked: sel ? 'true' : 'false',
+        bg: sel ? t.accentSoft : 'transparent',
+        markBg: sel ? t.accent : 'transparent',
+        mark: sel ? 'M5 12.5l4.5 4.5L19 7.5' : '',
+        divider: i === 0 ? 'transparent' : t.line,
+        pick: () => this.setState({ lang: l.code, langSheet: false })
+      };
+    });
+    const cur = langDefs.find((l) => l.code === this.state.lang) || langDefs[1];
+    return {
+      t,
+      notifs,
+      themes,
+      langs,
+      langSheet: !!this.state.langSheet,
+      currentLang: cur.code === 'system' ? 'Jak w telefonie' : cur.native,
+      openLang: () => this.setState({ langSheet: true }),
+      closeLang: () => this.setState({ langSheet: false }),
+      nav: {
+        timer: propDark ? 'TimerDark.dc.html' : 'Main.dc.html',
+        protokoly: 'Protokoly' + s + '.dc.html',
+        historia: 'Historia' + s + '.dc.html',
+        pomiary: 'Pomiary' + s + '.dc.html',
+        ustawienia: 'Ustawienia' + s + '.dc.html'
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Posto – wybór protokołu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; padding: 16px 20px 28px; background: {{t.bg}}; color: {{t.ink}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; overflow: hidden">
+  <header style="display: flex; align-items: center; gap: 8px; min-height: 48px; margin-left: -10px">
+    <a href="{{back}}" aria-label="Wróć do timera" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 14px; color: {{t.ink}}">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+    </a>
+    <span style="font-size: 15px; font-weight: 600; color: {{t.muted}}">Timer</span>
+  </header>
+
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <h1 style="margin: 0; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1">Protokół postu</h1>
+    <p style="margin: 0; font-size: 14px; color: {{t.muted}}; line-height: 1.45">Wybierz rytm, który pasuje do Twojego dnia. Możesz go zmienić w każdej chwili.</p>
+  </div>
+
+  <div role="radiogroup" aria-label="Protokoły" style="display: flex; flex-direction: column; gap: 8px">
+    <sc-for list="{{protocols}}" as="p" hint-placeholder-count="6">
+      <button type="button" role="radio" aria-checked="{{p.checked}}" onClick="{{p.pick}}" style="display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 8px 16px; border-radius: 18px; background: {{t.surface}}; border: 2px solid {{p.border}}; color: {{t.ink}}; text-align: left; cursor: pointer; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; box-sizing: border-box">
+        <span aria-hidden="true" style="width: 22px; height: 22px; border-radius: 50%; border: 2px solid {{p.radio}}; display: flex; align-items: center; justify-content: center; box-sizing: border-box; flex: 0 0 auto">
+          <span style="width: 10px; height: 10px; border-radius: 50%; background: {{p.dot}}"></span>
+        </span>
+        <span style="width: 62px; flex: 0 0 auto; font-family: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">{{p.name}}</span>
+        <span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 5px; min-width: 0">
+          <span style="font-size: 14px; font-weight: 700">{{p.label}}</span>
+          <span style="display: flex; height: 5px; border-radius: 3px; overflow: hidden; background: {{t.waterSoft}}">
+            <span style="width: {{p.pct}}%; background: {{t.accent}}"></span>
+          </span>
+          <span style="font-size: 12px; color: {{t.muted}}">{{p.desc}}</span>
+        </span>
+      </button>
+    </sc-for>
+  </div>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: 18px; background: {{t.surface}}; border: 1px solid {{t.line}}">
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <label for="lastMeal" style="font-size: 14px; font-weight: 700">Ostatni posiłek</label>
+      <span style="font-size: 12px; color: {{t.muted}}">{{summary}}</span>
+    </div>
+    <input id="lastMeal" type="time" value="{{lastMeal}}" onChange="{{onMeal}}" style="min-height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid {{t.line}}; background: {{t.bg}}; color: {{t.ink}}; font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 700; box-sizing: border-box">
+  </div>
+
+  <div style="flex: 1 1 auto"></div>
+
+  <a href="{{back}}" style="display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 18px; background: {{t.btn}}; color: {{t.btnText}}; text-decoration: none; font-size: 16px; font-weight: 700">Zapisz protokół {{selectedName}}</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Motyw"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { picked: '16:8', lastMeal: '20:00' };
+  }
+  theme(dark) {
+    return dark
+      ? { bg: '#0E1311', surface: '#171E1B', line: '#26302C', track: '#232C28', ink: '#EDF1EE', muted: '#9BA7A1', accent: '#F0784C', accentText: '#F5916B', water: '#3D8FD1', waterText: '#7DB8EA', waterSoft: '#14273A', btn: '#EDF1EE', btnText: '#0E1311' }
+      : { bg: '#F2F4F1', surface: '#FFFFFF', line: '#DCE2DD', track: '#E3E8E4', ink: '#141B18', muted: '#56615B', accent: '#E8673A', accentText: '#B0441C', water: '#2F7FC1', waterText: '#1F5F96', waterSoft: '#DDEBF7', btn: '#141B18', btnText: '#FFFFFF' };
+  }
+  pad(n) { return String(n).padStart(2, '0'); }
+  renderVals() {
+    const dark = !!this.props.dark;
+    const t = this.theme(dark);
+    const list = [
+      { name: '13:11', fast: 13, label: 'Łagodny start' },
+      { name: '14:10', fast: 14, label: 'Dla początkujących' },
+      { name: '16:8', fast: 16, label: 'Najpopularniejszy' },
+      { name: '18:6', fast: 18, label: 'Zaawansowany' },
+      { name: '20:4', fast: 20, label: 'Wojownik' },
+      { name: '23:1', fast: 23, label: 'Jeden posiłek (OMAD)' }
+    ];
+    const picked = this.state.picked;
+    const sel = list.find((p) => p.name === picked) || list[2];
+    const protocols = list.map((p) => {
+      const on = p.name === picked;
+      return {
+        name: p.name,
+        label: p.label,
+        desc: p.fast + ' h postu · ' + (24 - p.fast) + ' h jedzenia',
+        pct: Math.round((p.fast / 24) * 100),
+        checked: on ? 'true' : 'false',
+        border: on ? t.accent : t.line,
+        radio: on ? t.accent : t.muted,
+        dot: on ? t.accent : 'transparent',
+        pick: () => this.setState({ picked: p.name })
+      };
+    });
+    const [hh, mm] = (this.state.lastMeal || '20:00').split(':').map(Number);
+    const endH = (hh + sel.fast) % 24;
+    return {
+      t,
+      back: dark ? 'TimerDark.dc.html' : 'Main.dc.html',
+      protocols,
+      selectedName: sel.name,
+      lastMeal: this.state.lastMeal,
+      onMeal: (e) => this.setState({ lastMeal: e.target.value }),
+      summary: 'Post: ' + this.pad(hh) + ':' + this.pad(mm) + ' → ' + this.pad(endH) + ':' + this.pad(mm) + (hh + sel.fast >= 24 ? ' następnego dnia' : '')
+    };
+  }
+}
+</script>
+</body>
+</html>
