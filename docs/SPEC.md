@@ -249,7 +249,7 @@ Od góry:
    - „Waga” (ostatni pomiar i zmiana od poprzedniego, link do `/measurements`).
 6. **Przycisk główny:**
    - w trakcie postu: „Zakończ post”;
-   - w oknie jedzenia: „Rozpocznij teraz” + obok drugi przycisk „Zacząłem wcześniej”, który otwiera arkusz edycji startu.
+   - w oknie jedzenia: „Rozpocznij teraz” (bezpośrednio pod kaflami Początek / Następny post). Jeśli post zaczął się wcześniej, użytkownik edytuje początek kafelkiem „Początek”.
 
 #### 7.3.1 Edycja początku postu (arkusz)
 

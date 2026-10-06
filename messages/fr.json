@@ -84,7 +84,6 @@
     "endFast": "Terminer le jeûne",
     "endFastReached": "Terminer · objectif atteint",
     "startNow": "Commencer",
-    "startedEarlier": "Déjà commencé",
     "announcePhase": "Phase du jeûne : {phase}",
     "announceGoal": "Objectif de {goal} h atteint"
   },

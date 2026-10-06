@@ -84,7 +84,6 @@
     "endFast": "Завершити піст",
     "endFastReached": "Завершити · мету досягнуто",
     "startNow": "Почати зараз",
-    "startedEarlier": "Почав раніше",
     "announcePhase": "Фаза посту: {phase}",
     "announceGoal": "Мету {goal} год досягнуто"
   },

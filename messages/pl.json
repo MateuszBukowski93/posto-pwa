@@ -84,7 +84,6 @@
     "endFast": "Zakończ post",
     "endFastReached": "Zakończ post · cel osiągnięty",
     "startNow": "Rozpocznij teraz",
-    "startedEarlier": "Zacząłem wcześniej",
     "announcePhase": "Faza postu: {phase}",
     "announceGoal": "Cel {goal} h osiągnięty"
   },

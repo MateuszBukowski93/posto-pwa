@@ -53,7 +53,8 @@ test('edycja startu na „Wczoraj 19:00” i blokada godziny z przyszłości', a
 
 test('zakończenie postu ≥ celu → wpis „Cel osiągnięty” i seria 1', async ({ page }) => {
   await onboard(page);
-  await page.getByRole('button', { name: 'Zacząłem wcześniej' }).click();
+  await page.getByRole('button', { name: 'Rozpocznij teraz' }).click();
+  await page.getByRole('button', { name: /Edytuj początek postu/ }).click();
   const dialog = page.getByRole('dialog');
   await dialog.getByRole('radio', { name: /Przedwczoraj/ }).click();
   await dialog.getByLabel('Godzina').fill('08:00');

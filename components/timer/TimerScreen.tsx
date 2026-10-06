@@ -12,7 +12,7 @@ import { addWater, endFast, readSettings, startFast, updateFastStart } from '@/l
 import { computeTimerState, getLastEndedFast, type TimerState } from '@/lib/domain/fasting';
 import { PHASES, phaseSegments } from '@/lib/domain/phases';
 import { getProtocol } from '@/lib/domain/protocols';
-import { formatClock, HOUR, mostRecentLocalTime, SECOND, startOfLocalDay } from '@/lib/domain/time';
+import { formatClock, HOUR, SECOND, startOfLocalDay } from '@/lib/domain/time';
 import { waterTotalForDay } from '@/lib/domain/water';
 import { latestWeight, previousWeight } from '@/lib/domain/weight';
 import { relativeDay } from '@/lib/format';
@@ -25,7 +25,7 @@ import { Ring } from './Ring';
 
 type SheetState =
   | { kind: 'none' }
-  | { kind: 'start'; mode: 'edit' | 'create'; initialStart: number; openedAt: number }
+  | { kind: 'start'; mode: 'edit'; initialStart: number; openedAt: number }
   | { kind: 'endConfirm'; openedAt: number }
   | { kind: 'end'; openedAt: number };
 
@@ -70,13 +70,6 @@ export function TimerScreen() {
 
   const onStartNow = async () => {
     await startFast(Date.now(), settings.protocolId).catch(() => undefined);
-  };
-
-  const openStartedEarlier = () => {
-    const openedAt = Date.now();
-    const planned = mostRecentLocalTime(openedAt, settings.lastMealTime) ?? openedAt;
-    const initialStart = previousEndedAt !== undefined && planned < previousEndedAt ? openedAt : planned;
-    setSheet({ kind: 'start', mode: 'create', initialStart, openedAt });
   };
 
   const openEditStart = () => {
@@ -249,6 +242,16 @@ export function TimerScreen() {
         </div>
       </section>
 
+      {activeFast ? (
+        <Button onClick={() => setSheet({ kind: 'endConfirm', openedAt: Date.now() })}>
+          {state?.kind === 'fasting' && state.reached ? t('endFastReached') : t('endFast')}
+        </Button>
+      ) : (
+        <Button onClick={onStartNow} disabled={!ready}>
+          {t('startNow')}
+        </Button>
+      )}
+
       <section
         aria-label={t('phaseLabel')}
         className="flex flex-col gap-2.5 rounded-[18px] border border-line bg-surface px-4 py-3.5"
@@ -296,25 +299,6 @@ export function TimerScreen() {
           <span className="text-xs text-muted">{weightSub}</span>
         </Link>
       </section>
-
-      <div className="flex-1" />
-
-      <div className="flex gap-2.5">
-        {activeFast ? (
-          <Button className="flex-1" onClick={() => setSheet({ kind: 'endConfirm', openedAt: Date.now() })}>
-            {state?.kind === 'fasting' && state.reached ? t('endFastReached') : t('endFast')}
-          </Button>
-        ) : (
-          <>
-            <Button className="flex-1" onClick={onStartNow} disabled={!ready}>
-              {t('startNow')}
-            </Button>
-            <Button variant="secondary" className="shrink-0" onClick={openStartedEarlier} disabled={!ready}>
-              {t('startedEarlier')}
-            </Button>
-          </>
-        )}
-      </div>
 
       <StartSheet
         open={sheet.kind === 'start'}

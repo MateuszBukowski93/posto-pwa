@@ -84,7 +84,6 @@
     "endFast": "Termina digiuno",
     "endFastReached": "Termina · obiettivo raggiunto",
     "startNow": "Inizia ora",
-    "startedEarlier": "Ho iniziato prima",
     "announcePhase": "Fase del digiuno: {phase}",
     "announceGoal": "Obiettivo di {goal} h raggiunto"
   },

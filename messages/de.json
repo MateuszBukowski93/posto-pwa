@@ -84,7 +84,6 @@
     "endFast": "Fasten beenden",
     "endFastReached": "Beenden · Ziel erreicht",
     "startNow": "Jetzt starten",
-    "startedEarlier": "Früher begonnen",
     "announcePhase": "Fastenphase: {phase}",
     "announceGoal": "Ziel von {goal} h erreicht"
   },
