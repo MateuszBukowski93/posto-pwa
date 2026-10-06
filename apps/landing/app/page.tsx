@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 /** Placeholdery w nawiasach kwadratowych – jak w apps/pwa/lib/config.ts. */
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://mateuszbukowski93.github.io/posto-pwa/';
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://pwa.postofasting.app/';
 const APP_HOST = APP_URL.replace(/^https?:\/\//, '').replace(/\/$/, '');
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 const COMPANY = '[NAZWA FIRMY]';
