@@ -1,6 +1,6 @@
 /**
  * Terms of Use and Privacy Policy (EN translation; the Polish version is binding) for the mobile app.
- * Same as the PWA version (content/legal/en in the repository root) with technical changes.
+ * Same as the PWA version (apps/pwa/content/legal/en) with technical changes.
  */
 
 export const terms = `# Terms of Use

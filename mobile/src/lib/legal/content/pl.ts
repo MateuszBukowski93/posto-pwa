@@ -1,6 +1,6 @@
 /**
  * Regulamin i Polityka prywatności (PL, wersja wiążąca) dla aplikacji mobilnej.
- * Treść jak w wersji PWA (content/legal/pl w katalogu głównym repozytorium), z technicznymi
+ * Treść jak w wersji PWA (apps/pwa/content/legal/pl), z technicznymi
  * zmianami (sklep z aplikacjami zamiast przeglądarki, brak statystyk i hostingu).
  * Tokeny {{…}} uzupełnia lib/config.ts. Znaczniki: zob. ../markdown.ts.
  */

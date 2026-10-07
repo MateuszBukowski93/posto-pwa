@@ -1,4 +1,4 @@
-/** Tokeny wizualne – te same wartości co w wersji PWA (app/globals.css, sekcja 4 specyfikacji). */
+/** Tokeny wizualne – te same wartości co w wersji PWA (apps/pwa/app/globals.css, sekcja 4 specyfikacji). */
 
 const light = {
   bg: '#F2F4F1',

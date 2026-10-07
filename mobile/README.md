@@ -1,10 +1,10 @@
 # Posto – aplikacja mobilna (React Native + Expo)
 
-Natywna wersja Posto na iOS i Androida: ta sama funkcjonalność i wygląd co PWA z katalogu głównego
+Natywna wersja Posto na iOS i Androida: ta sama funkcjonalność i wygląd co PWA z `apps/pwa`
 (timer postu i okna jedzenia, fazy, historia i statystyki, waga i woda, ustawienia), bez logowania i bez backendu.
 Dane zostają na telefonie (SQLite).
 
-Specyfikacja produktu i makiety są wspólne: [`../docs/SPEC.md`](../docs/SPEC.md), [`../design/`](../design/).
+Specyfikacja produktu i makiety są wspólne: [`apps/pwa/docs/SPEC.md`](../apps/pwa/docs/SPEC.md), [`apps/pwa/design/`](../apps/pwa/design/).
 
 ## Stack
 
@@ -46,7 +46,7 @@ Wersje sklepowe buduje się w chmurze przez EAS (`npx eas-cli@latest build`), be
 ```
 src/app/                  trasy expo-router: (tabs) z dolną nawigacją, welcome, protocol, terms, privacy
 src/components/           ekrany i komponenty UI (BottomSheet, Ring, WeekChart, PickerFields, Switch…)
-src/lib/domain/           czyste funkcje – kopia lib/domain z PWA (+ planowanie powiadomień na kilka dni)
+src/lib/domain/           czyste funkcje – kopia apps/pwa/lib/domain (+ planowanie powiadomień na kilka dni)
 src/lib/db/               SQLite: schemat i migracje, kolejka zapytań, repozytorium, odświeżanie widoków
 src/lib/notifications/    NotificationScheduler na expo-notifications
 src/lib/i18n/             komunikaty, polyfille Intl dla Hermesa, nazwy języków

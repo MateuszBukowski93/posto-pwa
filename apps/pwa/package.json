@@ -1,0 +1,44 @@
+{
+  "name": "@posto/pwa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && node scripts/generate-sw.mjs",
+    "start": "node scripts/serve-out.mjs",
+    "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "icons": "node scripts/generate-icons.mjs"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "dexie": "^4.4.6",
+    "dexie-react-hooks": "^4.4.0",
+    "next": "16.3.8",
+    "next-intl": "^4.14.9",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^24.19.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "eslint-config-prettier": "^10.1.8",
+    "fake-indexeddb": "^6.2.5",
+    "intl-messageformat": "^11.2.15",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^5.0.3"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

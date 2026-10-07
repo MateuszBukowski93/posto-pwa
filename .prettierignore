@@ -7,5 +7,6 @@ content
 playwright-report
 test-results
 package-lock.json
-public/sw.js
+**/public/sw.js
+.claude
 mobile
