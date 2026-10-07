@@ -16,6 +16,9 @@ Specyfikacja produktu: [`docs/SPEC.md`](apps/pwa/docs/SPEC.md). Makiety (źród�
 
 Skrypty z katalogu głównego działają na wszystkich aplikacjach; pojedynczą wybierasz przez `-w @posto/pwa` lub `-w @posto/landing`. Ścieżki `docs/`, `design/` itd. poniżej są względem `apps/pwa`.
 
+**Aplikacja mobilna (iOS i Android):** natywna wersja w React Native + Expo jest w katalogu [`mobile/`](mobile/)
+(osobny projekt z własnymi zależnościami, testami i workflow CI – zob. [`mobile/README.md`](mobile/README.md)).
+
 ## Stack
 
 - Next.js 16 (App Router, statyczny eksport `output: 'export'`), React 19, TypeScript (strict)
