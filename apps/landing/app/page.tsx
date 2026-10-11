@@ -8,7 +8,6 @@ const COMPANY = 'DeveloArt Mateusz Bukowski';
 const EMAIL = 'kontakt@develoart.com';
 const BUY_ME_A_COFFEE = '[LINK BUY ME A COFFEE]';
 
-const appLink = (path = '') => new URL(path, APP_URL.endsWith('/') ? APP_URL : `${APP_URL}/`).toString();
 
 const svgProps = {
   fill: 'none',
@@ -431,7 +430,7 @@ export default function Home() {
             <span>© 2026 {COMPANY}</span>
           </div>
           <nav aria-label="Stopka">
-            <a href={appLink('terms/')}>Regulamin</a>
+            <a href={`${BASE}/terms/`}>Regulamin</a>
             <a href={`${BASE}/privacy-policy/`}>Polityka prywatności</a>
             <a href={BUY_ME_A_COFFEE}>Wesprzyj Posto</a>
             <a href={`mailto:${EMAIL}`}>Kontakt</a>
