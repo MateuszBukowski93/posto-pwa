@@ -432,7 +432,7 @@ export default function Home() {
           </div>
           <nav aria-label="Stopka">
             <a href={appLink('terms/')}>Regulamin</a>
-            <a href={appLink('privacy/')}>Polityka prywatności</a>
+            <a href={`${BASE}/privacy-policy/`}>Polityka prywatności</a>
             <a href={BUY_ME_A_COFFEE}>Wesprzyj Posto</a>
             <a href={`mailto:${EMAIL}`}>Kontakt</a>
           </nav>

@@ -653,3 +653,25 @@ h3 {
     bottom: 40px;
   }
 }
+
+.legal {
+  max-width: 760px;
+  padding-block: 48px 80px;
+  line-height: 1.6;
+}
+.legal h1 {
+  margin-bottom: 8px;
+}
+.legal h2 {
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+.legal p,
+.legal ul,
+.legal ol {
+  margin-bottom: 12px;
+}
+.legal ul,
+.legal ol {
+  padding-left: 1.4em;
+}
