@@ -4,11 +4,10 @@ import type { ReactNode } from 'react';
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://mateuszbukowski93.github.io/posto-pwa/';
 const APP_HOST = APP_URL.replace(/^https?:\/\//, '').replace(/\/$/, '');
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-const COMPANY = '[NAZWA FIRMY]';
-const EMAIL = '[E-MAIL]';
+const COMPANY = 'DeveloArt Mateusz Bukowski';
+const EMAIL = 'kontakt@develoart.com';
 const BUY_ME_A_COFFEE = '[LINK BUY ME A COFFEE]';
 
-const appLink = (path = '') => new URL(path, APP_URL.endsWith('/') ? APP_URL : `${APP_URL}/`).toString();
 
 const svgProps = {
   fill: 'none',
@@ -431,8 +430,8 @@ export default function Home() {
             <span>© 2026 {COMPANY}</span>
           </div>
           <nav aria-label="Stopka">
-            <a href={appLink('terms/')}>Regulamin</a>
-            <a href={appLink('privacy/')}>Polityka prywatności</a>
+            <a href={`${BASE}/terms/`}>Regulamin</a>
+            <a href={`${BASE}/privacy-policy/`}>Polityka prywatności</a>
             <a href={BUY_ME_A_COFFEE}>Wesprzyj Posto</a>
             <a href={`mailto:${EMAIL}`}>Kontakt</a>
           </nav>

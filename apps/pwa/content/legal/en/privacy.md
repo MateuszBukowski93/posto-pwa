@@ -26,6 +26,8 @@ This data is not sent to us or to anyone else. We have no access to it, so we ca
 
 You can delete it at any time in Settings (Delete all data), by clearing the site data in your browser or by uninstalling the app. Deletion cannot be undone.
 
+The Posto Android app (Google Play) stores the same data only in your phone's storage. It does not connect to our servers, does not collect statistics or device identifiers, and contains no ads. Notifications are scheduled locally on the phone after you grant permission in Android.
+
 ## 3. Visit statistics
 
 To know how to develop Posto, we use {{analyticsTool}}. It works without cookies and only shows us aggregate statistics, such as the number of visits, screens visited, referral source, country, device type and browser. It does not allow us to identify a specific person.

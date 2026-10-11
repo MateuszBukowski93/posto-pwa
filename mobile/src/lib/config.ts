@@ -7,11 +7,11 @@
 export const siteConfig = {
   appName: 'Posto',
   brand: 'DeveloArt',
-  companyName: '[NAZWA FIRMY]',
-  address: '[ADRES]',
-  nip: '[NIP]',
-  email: '[E-MAIL]',
-  effectiveDate: '[DATA]',
+  companyName: 'DeveloArt Mateusz Bukowski',
+  address: 'ul. Raduńska 40A/3, 80-021 Gdańsk',
+  nip: '5833271688',
+  email: 'kontakt@develoart.com',
+  effectiveDate: '11 października 2026',
   buyMeACoffeeUrl: '[LINK BUY ME A COFFEE]',
 } as const;
 
