@@ -25,11 +25,11 @@ export const siteConfig = {
   email: 'kontakt@develoart.com',
   /** Ustawiane w CI na adres GitHub Pages; lokalnie zostaje placeholder. */
   appUrl: process.env.NEXT_PUBLIC_APP_URL || '[ADRES APLIKACJI]',
-  effectiveDate: '[DATA]',
+  effectiveDate: '11 października 2026',
   buyMeACoffeeUrl: '[LINK BUY ME A COFFEE]',
-  analyticsTool: '[NAZWA NARZĘDZIA, np. Vercel Web Analytics]',
-  hostingProvider: '[NAZWA HOSTINGU, np. Vercel Inc.]',
-  retentionPeriod: '[OKRES]',
+  analyticsTool: 'Vercel Web Analytics',
+  hostingProvider: 'Vercel Inc.',
+  retentionPeriod: '30 dni',
 } as const;
 
 export type SiteConfigKey = keyof typeof siteConfig;

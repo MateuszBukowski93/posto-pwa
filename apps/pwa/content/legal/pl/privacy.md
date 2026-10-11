@@ -26,9 +26,11 @@ Te dane nie są przesyłane do nas ani do nikogo innego. Nie mamy do nich dostę
 
 Możesz je usunąć w każdej chwili w Ustawieniach (Usuń wszystkie dane), czyszcząc dane strony w przeglądarce lub odinstalowując aplikację. Usunięcia nie da się cofnąć.
 
+Aplikacja Posto na Androida (Google Play) zapisuje te same dane wyłącznie w pamięci telefonu. Nie łączy się z naszymi serwerami, nie zbiera statystyk ani identyfikatorów urządzenia i nie zawiera reklam. Powiadomienia są planowane lokalnie na telefonie, po udzieleniu zgody w systemie Android.
+
 ## 3. Statystyki odwiedzin
 
-Aby wiedzieć, jak rozwijać Posto, korzystamy z narzędzia {{analyticsTool}}. Działa ono bez plików cookies i pokazuje nam tylko zbiorcze statystyki, takie jak liczba odwiedzin, odwiedzane ekrany, źródło wejścia, kraj, typ urządzenia i przeglądarka. Nie pozwala nam zidentyfikować konkretnej osoby.
+Aby wiedzieć, jak rozwijać Posto, korzystamy w wersji przeglądarkowej z narzędzia {{analyticsTool}}. Działa ono bez plików cookies i pokazuje nam tylko zbiorcze statystyki, takie jak liczba odwiedzin, odwiedzane ekrany, źródło wejścia, kraj, typ urządzenia i przeglądarka. Nie pozwala nam zidentyfikować konkretnej osoby.
 
 Podstawą prawną jest nasz prawnie uzasadniony interes, czyli analiza i rozwój aplikacji (art. 6 ust. 1 lit. f RODO). Dane statystyczne przechowujemy przez {{retentionPeriod}}.
 

@@ -11,7 +11,7 @@ export const siteConfig = {
   address: 'ul. Raduńska 40A/3, 80-021 Gdańsk',
   nip: '5833271688',
   email: 'kontakt@develoart.com',
-  effectiveDate: '[DATA]',
+  effectiveDate: '11 października 2026',
   buyMeACoffeeUrl: '[LINK BUY ME A COFFEE]',
 } as const;
 

@@ -15,10 +15,10 @@ const placeholders: Record<string, string> = {
   address: 'ul. Raduńska 40A/3, 80-021 Gdańsk',
   nip: '5833271688',
   email: 'kontakt@develoart.com',
-  effectiveDate: '[DATA]',
-  analyticsTool: '[NAZWA NARZĘDZIA, np. Vercel Web Analytics]',
-  hostingProvider: '[NAZWA HOSTINGU, np. Vercel Inc.]',
-  retentionPeriod: '[OKRES]',
+  effectiveDate: '11 października 2026',
+  analyticsTool: 'Vercel Web Analytics',
+  hostingProvider: 'Vercel Inc.',
+  retentionPeriod: '30 dni',
 };
 
 type Block = { type: 'h1' | 'h2' | 'p'; text: string } | { type: 'ol' | 'ul'; items: string[] };
@@ -31,8 +31,11 @@ function loadBlocks(): Block[] {
 
   const blocks: Block[] = [];
   let paragraph: string[] = [];
+  let skipNote = false;
   const flush = () => {
-    if (paragraph.length) blocks.push({ type: 'p', text: paragraph.join(' ') });
+    // Akapit po `<!-- note -->` to notatka dla autora – nie publikujemy jej.
+    if (paragraph.length && !skipNote) blocks.push({ type: 'p', text: paragraph.join(' ') });
+    if (paragraph.length) skipNote = false;
     paragraph = [];
   };
 
@@ -40,6 +43,7 @@ function loadBlocks(): Block[] {
     const line = raw.trim();
     if (line === '' || line.startsWith('<!--')) {
       flush();
+      if (line === '<!-- note -->') skipNote = true;
       continue;
     }
     const heading = /^(#{1,2})\s+(.*)$/.exec(line);
