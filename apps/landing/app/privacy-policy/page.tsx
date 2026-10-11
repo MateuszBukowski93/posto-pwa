@@ -11,9 +11,9 @@ export const metadata: Metadata = { title: 'Polityka prywatności – Posto' };
 
 /** Placeholdery jak w apps/pwa/lib/config.ts – uzupełnij przed publikacją. */
 const placeholders: Record<string, string> = {
-  companyName: '[NAZWA FIRMY]',
-  address: '[ADRES]',
-  nip: '[NIP]',
+  companyName: 'DeveloArt Mateusz Bukowski',
+  address: 'ul. Raduńska 40A/3, 80-021 Gdańsk',
+  nip: '5833271688',
   email: '[E-MAIL]',
   effectiveDate: '[DATA]',
   analyticsTool: '[NAZWA NARZĘDZIA, np. Vercel Web Analytics]',

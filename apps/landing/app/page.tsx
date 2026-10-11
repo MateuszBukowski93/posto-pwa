@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://mateuszbukowski93.github.io/posto-pwa/';
 const APP_HOST = APP_URL.replace(/^https?:\/\//, '').replace(/\/$/, '');
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-const COMPANY = '[NAZWA FIRMY]';
+const COMPANY = 'DeveloArt Mateusz Bukowski';
 const EMAIL = '[E-MAIL]';
 const BUY_ME_A_COFFEE = '[LINK BUY ME A COFFEE]';
 

@@ -19,9 +19,9 @@ export const ANALYTICS_ENABLED = process.env.NEXT_PUBLIC_VERCEL_ANALYTICS === '1
 export const siteConfig = {
   appName: 'Posto',
   brand: 'DeveloArt',
-  companyName: '[NAZWA FIRMY]',
-  address: '[ADRES]',
-  nip: '[NIP]',
+  companyName: 'DeveloArt Mateusz Bukowski',
+  address: 'ul. Raduńska 40A/3, 80-021 Gdańsk',
+  nip: '5833271688',
   email: '[E-MAIL]',
   /** Ustawiane w CI na adres GitHub Pages; lokalnie zostaje placeholder. */
   appUrl: process.env.NEXT_PUBLIC_APP_URL || '[ADRES APLIKACJI]',
