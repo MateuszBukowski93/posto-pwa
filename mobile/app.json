@@ -1,22 +1,22 @@
 {
   "expo": {
     "name": "Posto",
-    "slug": "posto",
-    "version": "0.1.0",
+    "slug": "posto-if-app",
+    "version": "1.2.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "posto",
     "userInterfaceStyle": "automatic",
     "backgroundColor": "#F2F4F1",
     "ios": {
-      "bundleIdentifier": "com.develoart.posto",
+      "bundleIdentifier": "if-app-posto",
       "supportsTablet": true,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
-      "package": "com.develoart.posto",
+      "package": "com.bukos.postoifapp",
       "adaptiveIcon": {
         "backgroundColor": "#F2F4F1",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -54,6 +54,12 @@
       "typedRoutes": true,
       "reactCompiler": true
     },
-    "platforms": ["ios", "android"]
+    "platforms": ["ios", "android"],
+    "owner": "develo_art",
+    "extra": {
+      "eas": {
+        "projectId": "652e8ee6-31e3-45f9-8600-3afac1e1305e"
+      }
+    }
   }
 }
