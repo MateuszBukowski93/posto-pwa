@@ -5,7 +5,7 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://mateuszbukowski93.gi
 const APP_HOST = APP_URL.replace(/^https?:\/\//, '').replace(/\/$/, '');
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 const COMPANY = 'DeveloArt Mateusz Bukowski';
-const EMAIL = '[E-MAIL]';
+const EMAIL = 'kontakt@develoart.com';
 const BUY_ME_A_COFFEE = '[LINK BUY ME A COFFEE]';
 
 const appLink = (path = '') => new URL(path, APP_URL.endsWith('/') ? APP_URL : `${APP_URL}/`).toString();

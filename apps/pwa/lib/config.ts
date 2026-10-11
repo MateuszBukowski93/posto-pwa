@@ -22,7 +22,7 @@ export const siteConfig = {
   companyName: 'DeveloArt Mateusz Bukowski',
   address: 'ul. Raduńska 40A/3, 80-021 Gdańsk',
   nip: '5833271688',
-  email: '[E-MAIL]',
+  email: 'kontakt@develoart.com',
   /** Ustawiane w CI na adres GitHub Pages; lokalnie zostaje placeholder. */
   appUrl: process.env.NEXT_PUBLIC_APP_URL || '[ADRES APLIKACJI]',
   effectiveDate: '[DATA]',

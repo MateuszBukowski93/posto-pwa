@@ -14,7 +14,7 @@ const placeholders: Record<string, string> = {
   companyName: 'DeveloArt Mateusz Bukowski',
   address: 'ul. Raduńska 40A/3, 80-021 Gdańsk',
   nip: '5833271688',
-  email: '[E-MAIL]',
+  email: 'kontakt@develoart.com',
   effectiveDate: '[DATA]',
   analyticsTool: '[NAZWA NARZĘDZIA, np. Vercel Web Analytics]',
   hostingProvider: '[NAZWA HOSTINGU, np. Vercel Inc.]',
