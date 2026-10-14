@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { APP_HOST, APP_URL, BASE, BUY_ME_A_COFFEE, COMPANY, EMAIL } from '@/lib/config';
-import { type Dict, type Locale, localeNames, locales } from '@/lib/dictionaries';
+import { type Dict, type Locale } from '@/lib/dictionaries';
+import { LanguageMenu } from './LanguageMenu';
 
 const svgProps = {
   fill: 'none',
@@ -68,11 +69,6 @@ function Screen({ src, alt, small }: { src: string; alt: string; small?: boolean
   );
 }
 
-/** Adres wersji językowej – polska jest pod `/`, pozostałe pod `/<kod>/`. */
-function localeHref(locale: Locale) {
-  return locale === 'pl' ? `${BASE}/` : `${BASE}/${locale}/`;
-}
-
 export function LandingPage({ lang, dict }: { lang: Locale; dict: Dict }) {
   const withHost = (text: string) => text.replace('{host}', APP_HOST);
   const install = [
@@ -111,19 +107,7 @@ export function LandingPage({ lang, dict }: { lang: Locale; dict: Dict }) {
               {dict.nav.open}
             </a>
           </nav>
-          <nav aria-label={dict.aria.language} className="lang">
-            {locales.map((locale) => (
-              <a
-                key={locale}
-                href={localeHref(locale)}
-                hrefLang={locale}
-                lang={locale}
-                aria-current={locale === lang ? 'page' : undefined}
-              >
-                {localeNames[locale]}
-              </a>
-            ))}
-          </nav>
+          <LanguageMenu lang={lang} label={dict.aria.language} />
         </div>
       </header>
 
