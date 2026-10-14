@@ -12,7 +12,8 @@
       "distribution": "internal"
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "node": "24.18.0"
     }
   },
   "submit": {
@@ -20,6 +21,9 @@
       "android": {
         "track": "internal",
         "releaseStatus": "draft"
+      },
+      "ios": {
+        "ascAppId": "6751952580"
       }
     }
   }
