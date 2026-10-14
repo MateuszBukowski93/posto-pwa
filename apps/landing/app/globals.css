@@ -152,6 +152,29 @@ h3 {
   font-weight: 700;
 }
 
+/* Przełącznik języka */
+.lang {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.lang a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+.lang a:hover {
+  color: var(--ink);
+  background: var(--surface);
+}
+.lang a[aria-current='page'] {
+  color: var(--ink);
+  background: var(--line);
+}
+
 /* Hero */
 .hero {
   padding-top: clamp(40px, 6vw, 80px);
